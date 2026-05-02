@@ -219,12 +219,15 @@ MonoBehaviour:
   jumpForce: 8.5
   jumpContinuesForce: 1
   groundCheck: {fileID: 2439852176230340263}
-  groundCheckRadius: 0.2
+  groundCheckRadius: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   jumpClip: {fileID: 8300000, guid: 3907b9a66967648e0bd353f41fa2b1e5, type: 3}
   hurtClip: {fileID: 8300000, guid: 3dc7d265f9c42437492a59228fc7b6d7, type: 3}
+  iFrameDuration: 1
+  wallCheckDistance: 1
+  wallSlideSpeed: 2
   extraJumpsValue: 1
   coyoteTime: 0.2
   jumpBufferTime: 0.15

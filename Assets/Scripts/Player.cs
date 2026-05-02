@@ -24,6 +24,13 @@ public class Player : MonoBehaviour
     public float iFrameDuration = 1f;
     private bool isInvincible;
 
+    [Header("Wall Sliding")]
+    public float wallCheckDistance = 1f;
+    public float wallSlideSpeed = 2f;
+
+    private bool isTouchingWall;
+    private bool isWallSliding;
+
     private Rigidbody2D rb;
     private bool isGrounded;
     private Animator animator;
@@ -61,7 +68,7 @@ public class Player : MonoBehaviour
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-        if (rb.linearVelocityX != 0)
+        if (rb.linearVelocityX != 0 && !isTouchingWall)
         {
             if (rb.linearVelocityX > 0)
             {
@@ -93,6 +100,17 @@ public class Player : MonoBehaviour
 
         if (jumpBufferCounter > 0f)
         {
+
+            if (isWallSliding)
+            {
+                float direction = spriteRenderer.flipX ? 1 : -1;
+
+                rb.linearVelocity = new Vector2(direction * 8f, jumpForce);
+
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+                PlaySFX(jumpClip);
+            }
+
             if (coyoteTimeCounter > 0f)
             {
 
@@ -136,11 +154,15 @@ public class Player : MonoBehaviour
         {
             Die();
         }
+
+        HandleWallSliding();
     }
 
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        isTouchingWall = Physics2D.Raycast(transform.position, spriteRenderer.flipX ? Vector2.left : Vector2.right, wallCheckDistance, groundLayer);
+    
     }
 
     private void SetAnimationStates(float moveInput)
@@ -159,6 +181,11 @@ public class Player : MonoBehaviour
         }
         else
         {
+            if (isWallSliding)
+            {
+                animator.Play("Player_WallSlide");
+            }
+
             if (rb.linearVelocityY > 0)
             {
 
@@ -233,6 +260,19 @@ public class Player : MonoBehaviour
 
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.b, 1);
         isInvincible = false;
+    }
+
+    private void HandleWallSliding()
+    {
+        if (isTouchingWall && !isGrounded && rb.linearVelocityY < 0.15f)
+        {
+            isWallSliding = true;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, -wallSlideSpeed));
+        }
+        else
+        {
+            isWallSliding = false;
+        }
     }
 
 
