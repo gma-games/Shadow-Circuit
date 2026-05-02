@@ -1,0 +1,73 @@
+name: Build Unity Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build ${{ matrix.artifactName }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - targetPlatform: StandaloneWindows64
+            os: ubuntu-latest
+            artifactName: Windows
+            zipName: Windows.zip
+
+          - targetPlatform: StandaloneLinux64
+            os: ubuntu-latest
+            artifactName: Linux
+            zipName: Linux.zip
+
+          - targetPlatform: StandaloneOSX
+            os: macos-latest
+            artifactName: macOS
+            zipName: macOS.zip
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ matrix.targetPlatform }}-${{ hashFiles('ProjectSettings/ProjectVersion.txt') }}
+          restore-keys: |
+            Library-${{ matrix.targetPlatform }}-
+            Library-
+
+      - name: Build Unity project
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: .
+          unityVersion: 6000.3.8f1
+          targetPlatform: ${{ matrix.targetPlatform }}
+          buildsPath: build
+          buildName: Game
+          allowDirtyBuild: true
+
+      - name: Zip build
+        run: |
+          cd build
+          zip -r "../${{ matrix.zipName }}" .
+
+      - name: Upload release file
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ matrix.zipName }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
