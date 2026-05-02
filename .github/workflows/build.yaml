@@ -34,11 +34,11 @@ jobs:
             zipName: macOS.zip
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           lfs: true
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: Library
           key: Library-${{ matrix.targetPlatform }}-${{ hashFiles('ProjectSettings/ProjectVersion.txt') }}
@@ -66,7 +66,7 @@ jobs:
           zip -r "../${{ matrix.zipName }}" .
 
       - name: Upload release file
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: ${{ matrix.zipName }}
         env:
