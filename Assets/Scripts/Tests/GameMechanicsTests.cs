@@ -21,6 +21,13 @@ public class GameMechanicsTests
         GameObject cameraObj = new GameObject("TestCamera");
         cameraObj.AddComponent<AudioListener>();
 
+        // 4. UI Mockolása (Helyettesítése) - EZT ELŐRE HOZZUK!
+        // Mivel a Player.cs a Start()-ban keresi a "Health" taget, 
+        // létrehozunk egyet, mielőtt a Player komponenst hozzáadnánk.
+        GameObject canvasObj = new GameObject("TestCanvas");
+        canvasObj.tag = "Health"; // <--- Nagyon fontos, ez alapján találja meg a Player.cs!
+        canvasObj.AddComponent<Image>();
+
         // 2. Játékos létrehozása
         playerObj = new GameObject("TestPlayer");
         playerObj.tag = "Player";
@@ -31,18 +38,18 @@ public class GameMechanicsTests
         playerObj.AddComponent<SpriteRenderer>();
         playerObj.AddComponent<AudioSource>();
 
+        // Itt adjuk hozzá a Player komponenst. A Start() le fog futni, 
+        // és magától megtalálja a fentebb létrehozott "Health" tag-ű canvasObj-t.
         playerScript = playerObj.AddComponent<Player>();
         playerScript.health = 100;
         playerScript.key = 0;
 
-        // 3. FIX: GroundCheck objektum létrehozása és bekötése! (Ez oldja meg a NullReference hibát)
+        // 3. FIX: GroundCheck objektum létrehozása és bekötése!
         GameObject groundCheckObj = new GameObject("TestGroundCheck");
         groundCheckObj.transform.SetParent(playerObj.transform); // Hozzárakjuk a Playerhez
         playerScript.groundCheck = groundCheckObj.transform;     // Beállítjuk a scriptben!
 
-        // 4. UI Mockolása (Helyettesítése)
-        GameObject canvasObj = new GameObject("TestCanvas");
-        playerScript.healthImage = canvasObj.AddComponent<Image>();
+        // A hibát okozó sor TÖRÖLVE LETT, mert a Player script megoldja magának a keresést.
     }
 
     // A [TearDown] minden teszt után lefut, és letakarítja a szemetet.
