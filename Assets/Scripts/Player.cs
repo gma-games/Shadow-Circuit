@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,14 +10,19 @@ public class Player : MonoBehaviour
     public int key;
     public int health = 100;
     public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce = 8.5f;
+    public float jumpContinuesForce = 1f;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
-    public Image healthImage;
+    private Image healthImage;
 
     public AudioClip jumpClip;
     public AudioClip hurtClip;
+
+    [Header("Invincibility")]
+    public float iFrameDuration = 1f;
+    private bool isInvincible;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -27,14 +33,27 @@ public class Player : MonoBehaviour
     private int extraJumps;
 
     private AudioSource audioSource;
+
+    public float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
+
+    public float jumpBufferTime = 0.15f;
+    private float jumpBufferCounter;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        healthImage = GameObject.FindWithTag("Health").GetComponent<Image>();
 
         extraJumps = extraJumpsValue;
+
+        if (Checkpoint.savedPoisiton != Vector2.zero)
+            {
+            transform.position = Checkpoint.savedPoisiton;
+        }
     }
 
     void Update()
@@ -42,30 +61,76 @@ public class Player : MonoBehaviour
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
+        if (rb.linearVelocityX != 0)
+        {
+            if (rb.linearVelocityX > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else            
+            {
+                spriteRenderer.flipX = true;
+            }
+        }
+
         if (isGrounded) { 
+            coyoteTimeCounter = coyoteTime;
             extraJumps = extraJumpsValue;
         }
-        
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isGrounded)
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else 
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        if (jumpBufferCounter > 0f)
+        {
+            if (coyoteTimeCounter > 0f)
             {
 
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                PlaySFX(jumpClip);  
+                PlaySFX(jumpClip);
+                coyoteTimeCounter = 0f;
+                jumpBufferCounter = 0f;
             }
             else if (extraJumps > 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 PlaySFX(jumpClip);
                 extraJumps--;
+                jumpBufferCounter = 0f;
+
             }
         }
 
-      
+        if (Input.GetKey(KeyCode.Space) && rb.linearVelocityY > 0)
+        {
+            rb.AddForceY(jumpContinuesForce);
+        }
+
+
+
         SetAnimationStates(moveInput);
 
         healthImage.fillAmount = health / 100f;
+
+        if(rb.linearVelocityY < 0)
+        {
+            rb.gravityScale = 3f;
+
+        }
+        else
+        {
+            rb.gravityScale = 2f;
+        }
 
         if (transform.position.y < -10)
         {
@@ -112,10 +177,18 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Damage"))
         {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            if (isInvincible)
+            {
+                return;
+            }
+
             PlaySFX(hurtClip);
             health -= 25;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+           
             StartCoroutine(BlinkRed());
+
+            StartCoroutine(InvincibilityFrames());
 
             if (health <= 0)
             {
@@ -126,9 +199,10 @@ public class Player : MonoBehaviour
 
     private IEnumerator BlinkRed()
     {
-        spriteRenderer.color = Color.red;
+        spriteRenderer.color = new Color(Color.red.r, Color.red.g, Color.red.b, spriteRenderer.color.a);
         yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = Color.white;
+        spriteRenderer.color = new Color(Color.white.r, Color.white.g, Color.white.b, spriteRenderer.color.a);
+       
     }
 
     private void Die()
@@ -144,5 +218,22 @@ public class Player : MonoBehaviour
         audioSource.Play();
     }
 
-    
+    private IEnumerator InvincibilityFrames()
+    {
+        isInvincible = true;
+        float elapsed = 0f;
+        while (elapsed < iFrameDuration)
+        {
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.b, 0.3f);
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.b, 1);
+            yield return new WaitForSeconds(0.1f);
+            elapsed += 0.2f;
+        }
+
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.b, 1);
+        isInvincible = false;
+    }
+
+
 }
