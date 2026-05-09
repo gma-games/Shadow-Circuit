@@ -107,10 +107,10 @@ GameObject:
   - component: {fileID: 132018594299132740}
   - component: {fileID: 4272355473475388693}
   - component: {fileID: 7457695189923930611}
+  - component: {fileID: 5088971401020442979}
   - component: {fileID: 6199747685223731349}
   - component: {fileID: 1575567835895410792}
-  - component: {fileID: 4858911256072104395}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ActualEnemy
   m_TagString: Damage
   m_Icon: {fileID: 0}
@@ -213,6 +213,26 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &5088971401020442979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133612516314076141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c74becc14912240b3db02cc1bfda53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainGame::EnemyController
+  speed: 2
+  chargeSpeed: 5
+  detectionRange: 3
+  loseDistance: 5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  patrolPoints: []
 --- !u!50 &6199747685223731349
 Rigidbody2D:
   serializedVersion: 5
@@ -286,19 +306,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.918087, y: 0.896244}
   m_EdgeRadius: 0
---- !u!114 &4858911256072104395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8133612516314076141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a238d65cf7a36f4992b0d909d2fe7ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  speed: 1
-  points:
-  - {fileID: 4232091489859666724}
-  - {fileID: 861840574987169302}

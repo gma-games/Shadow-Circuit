@@ -43,7 +43,9 @@ GameObject:
   - component: {fileID: 7281036817162689978}
   - component: {fileID: 6609923795273275649}
   - component: {fileID: 9195498784828789544}
-  - component: {fileID: 5200838132196191468}
+  - component: {fileID: 4650916311294315391}
+  - component: {fileID: 7122995163214166331}
+  - component: {fileID: 111133552717459632}
   - component: {fileID: 4833481026633071355}
   - component: {fileID: 2717267330851950379}
   m_Layer: 7
@@ -144,7 +146,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1ce412409e3700a4aab969ea04a1ed84, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -165,7 +167,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1ce412409e3700a4aab969ea04a1ed84, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -201,7 +203,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8416506, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5200838132196191468
+--- !u!114 &4650916311294315391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,27 +212,52 @@ MonoBehaviour:
   m_GameObject: {fileID: 8823149893204431154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fac02047161f414fadd210b5fe320a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b6e5e08e1dd2504086b4fc51032bdd5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  key: 0
-  health: 100
+  m_EditorClassIdentifier: MainGame::PlayerController
   moveSpeed: 5
   jumpForce: 8.5
   jumpContinuesForce: 1
+  wallSlideSpeed: 2
   groundCheck: {fileID: 2439852176230340263}
-  groundCheckRadius: 0.1
+  groundCheckRadius: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  jumpClip: {fileID: 8300000, guid: 3907b9a66967648e0bd353f41fa2b1e5, type: 3}
-  hurtClip: {fileID: 8300000, guid: 3dc7d265f9c42437492a59228fc7b6d7, type: 3}
-  iFrameDuration: 1
   wallCheckDistance: 1
-  wallSlideSpeed: 2
-  extraJumpsValue: 1
   coyoteTime: 0.2
   jumpBufferTime: 0.15
+  extraJumpsValue: 1
+--- !u!114 &7122995163214166331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8823149893204431154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5f058d0d923be4ea9f4ddbdbfcdb06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainGame::PlayerInteraction
+  interactRange: 1.5
+  nearbyObjects: []
+--- !u!114 &111133552717459632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8823149893204431154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df642b56f2ef66241a0ff6ac9fb69237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainGame::PlayerHealth
+  maxHealth: 100
+  knockbackForceUp: 8.5
+  knockbackForceHorizontal: 5
+  iFrameDuration: 1
 --- !u!95 &4833481026633071355
 Animator:
   serializedVersion: 7

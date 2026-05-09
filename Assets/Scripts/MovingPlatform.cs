@@ -1,36 +1,48 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-
+    [Header("Platform Settings")]
+    public bool isMoving = true;
     public float speed = 2f;
-    public Transform[] points;
+    public List<Transform> waypoints; 
 
-    private int i;
+    private int currentPointIndex = 0;
+
     void Start()
     {
-        transform.position = points[0].position;
+        if (waypoints.Count > 0)
+        {
+            transform.position = waypoints[0].position;
+        }
     }
 
     void Update()
     {
-        if(Vector2.Distance(transform.position, points[i].position) < 0.01f)
+        if (isMoving && waypoints.Count > 0)
         {
-            i++;
+            MovePlatform();
+        }
+    }
 
-            if(i == points.Length)
+    private void MovePlatform()
+    {
+        if (Vector2.Distance(transform.position, waypoints[currentPointIndex].position) < 0.01f)
+        {
+            currentPointIndex++;
+            if (currentPointIndex >= waypoints.Count)
             {
-                i = 0;
+                currentPointIndex = 0;
             }
-            
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, waypoints[currentPointIndex].position, speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             collision.collider.transform.SetParent(transform);
         }
@@ -38,7 +50,7 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             collision.collider.transform.SetParent(null);
         }
