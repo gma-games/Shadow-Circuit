@@ -1,0 +1,127 @@
+\doxysection{Puzzle\+Element Class Reference}
+\hypertarget{class_puzzle_element}{}\label{class_puzzle_element}\index{PuzzleElement@{PuzzleElement}}
+Inheritance diagram for Puzzle\+Element:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_puzzle_element}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623}{Puzzle\+State}} \{ \doxymbox{\hyperlink{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623a3cab03c00dbd11bc3569afa0748013f0}{Inactive}}
+, \doxymbox{\hyperlink{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623a4d3d769b812b6faa6b76e1a8abaece2d}{Active}}
+, \doxymbox{\hyperlink{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623a07ca5050e697392c9ed47e6453f1453f}{Completed}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_puzzle_element_aa0c4de533257c51cd0f9f95a53abc82e}{Check\+Completion}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623}{Puzzle\+State}} \doxymbox{\hyperlink{class_puzzle_element_a87f0eef4f8b5684558c0e5164584923d}{puzzle\+State}} = \doxymbox{\hyperlink{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623a3cab03c00dbd11bc3569afa0748013f0}{Puzzle\+State.\+Inactive}}
+\item 
+List$<$ \doxymbox{\hyperlink{class_switch}{Switch}} $>$ \doxymbox{\hyperlink{class_puzzle_element_a5cc444ffe0b23199ee1f6107ab1f0c6c}{required\+Switches}}
+\item 
+List$<$ Game\+Object $>$ \doxymbox{\hyperlink{class_puzzle_element_a6b8dd1c3c6dc85764710f00421601688}{objects\+To\+Trigger}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \doxymbox{\hyperlink{_puzzle_elements_8cs_source_l00004}{4}} of file \doxymbox{\hyperlink{_puzzle_elements_8cs_source}{Puzzle\+Elements.\+cs}}.
+
+
+
+\label{class_puzzle_element_doc-enum-members}
+\Hypertarget{class_puzzle_element_doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623}\index{PuzzleElement@{PuzzleElement}!PuzzleState@{PuzzleState}}
+\index{PuzzleState@{PuzzleState}!PuzzleElement@{PuzzleElement}}
+\doxysubsubsection{\texorpdfstring{PuzzleState}{PuzzleState}}
+{\footnotesize\ttfamily \label{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623} 
+enum \doxymbox{\hyperlink{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623}{Puzzle\+Element.\+Puzzle\+State}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Inactive@{Inactive}!PuzzleElement@{PuzzleElement}}
+\index{PuzzleElement@{PuzzleElement}!Inactive@{Inactive}}
+}\Hypertarget{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623a3cab03c00dbd11bc3569afa0748013f0}\label{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623a3cab03c00dbd11bc3569afa0748013f0} 
+Inactive&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Active@{Active}!PuzzleElement@{PuzzleElement}}
+\index{PuzzleElement@{PuzzleElement}!Active@{Active}}
+}\Hypertarget{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623a4d3d769b812b6faa6b76e1a8abaece2d}\label{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623a4d3d769b812b6faa6b76e1a8abaece2d} 
+Active&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Completed@{Completed}!PuzzleElement@{PuzzleElement}}
+\index{PuzzleElement@{PuzzleElement}!Completed@{Completed}}
+}\Hypertarget{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623a07ca5050e697392c9ed47e6453f1453f}\label{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623a07ca5050e697392c9ed47e6453f1453f} 
+Completed&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{_puzzle_elements_8cs_source_l00007}{7}} of file \doxymbox{\hyperlink{_puzzle_elements_8cs_source}{Puzzle\+Elements.\+cs}}.
+
+
+
+\label{class_puzzle_element_doc-func-members}
+\Hypertarget{class_puzzle_element_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_puzzle_element_aa0c4de533257c51cd0f9f95a53abc82e}\index{PuzzleElement@{PuzzleElement}!CheckCompletion@{CheckCompletion}}
+\index{CheckCompletion@{CheckCompletion}!PuzzleElement@{PuzzleElement}}
+\doxysubsubsection{\texorpdfstring{CheckCompletion()}{CheckCompletion()}}
+{\footnotesize\ttfamily \label{class_puzzle_element_aa0c4de533257c51cd0f9f95a53abc82e} 
+void Puzzle\+Element.\+Check\+Completion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_puzzle_elements_8cs_source_l00025}{25}} of file \doxymbox{\hyperlink{_puzzle_elements_8cs_source}{Puzzle\+Elements.\+cs}}.
+
+
+
+\label{class_puzzle_element_doc-variable-members}
+\Hypertarget{class_puzzle_element_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_puzzle_element_a6b8dd1c3c6dc85764710f00421601688}\index{PuzzleElement@{PuzzleElement}!objectsToTrigger@{objectsToTrigger}}
+\index{objectsToTrigger@{objectsToTrigger}!PuzzleElement@{PuzzleElement}}
+\doxysubsubsection{\texorpdfstring{objectsToTrigger}{objectsToTrigger}}
+{\footnotesize\ttfamily \label{class_puzzle_element_a6b8dd1c3c6dc85764710f00421601688} 
+List$<$Game\+Object$>$ Puzzle\+Element.\+objects\+To\+Trigger}
+
+
+
+Definition at line \doxymbox{\hyperlink{_puzzle_elements_8cs_source_l00014}{14}} of file \doxymbox{\hyperlink{_puzzle_elements_8cs_source}{Puzzle\+Elements.\+cs}}.
+
+\Hypertarget{class_puzzle_element_a87f0eef4f8b5684558c0e5164584923d}\index{PuzzleElement@{PuzzleElement}!puzzleState@{puzzleState}}
+\index{puzzleState@{puzzleState}!PuzzleElement@{PuzzleElement}}
+\doxysubsubsection{\texorpdfstring{puzzleState}{puzzleState}}
+{\footnotesize\ttfamily \label{class_puzzle_element_a87f0eef4f8b5684558c0e5164584923d} 
+\doxymbox{\hyperlink{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623}{Puzzle\+State}} Puzzle\+Element.\+puzzle\+State = \doxymbox{\hyperlink{class_puzzle_element_a5f5564d7c4af0822440dca0c5a037623a3cab03c00dbd11bc3569afa0748013f0}{Puzzle\+State.\+Inactive}}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_puzzle_elements_8cs_source_l00008}{8}} of file \doxymbox{\hyperlink{_puzzle_elements_8cs_source}{Puzzle\+Elements.\+cs}}.
+
+\Hypertarget{class_puzzle_element_a5cc444ffe0b23199ee1f6107ab1f0c6c}\index{PuzzleElement@{PuzzleElement}!requiredSwitches@{requiredSwitches}}
+\index{requiredSwitches@{requiredSwitches}!PuzzleElement@{PuzzleElement}}
+\doxysubsubsection{\texorpdfstring{requiredSwitches}{requiredSwitches}}
+{\footnotesize\ttfamily \label{class_puzzle_element_a5cc444ffe0b23199ee1f6107ab1f0c6c} 
+List$<$\doxymbox{\hyperlink{class_switch}{Switch}}$>$ Puzzle\+Element.\+required\+Switches}
+
+
+
+Definition at line \doxymbox{\hyperlink{_puzzle_elements_8cs_source_l00011}{11}} of file \doxymbox{\hyperlink{_puzzle_elements_8cs_source}{Puzzle\+Elements.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Assets/\+\+Scripts/\+\doxymbox{\hyperlink{_puzzle_elements_8cs}{Puzzle\+Elements.\+cs}}\end{DoxyCompactItemize}

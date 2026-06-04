@@ -1,0 +1,104 @@
+\doxysection{Game\+Mechanics\+Tests.\+cs}
+\hypertarget{_game_mechanics_tests_8cs_source}{}\label{_game_mechanics_tests_8cs_source}\index{Assets/Scripts/PlayModeTests/GameMechanicsTests.cs@{Assets/Scripts/PlayModeTests/GameMechanicsTests.cs}}
+\doxymbox{\hyperlink{_game_mechanics_tests_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System.Collections;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }NUnit.Framework;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }UnityEngine;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }UnityEngine.TestTools;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }UnityEngine.UI;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }TMPro;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00008}\doxymbox{\hyperlink{class_game_mechanics_tests}{00008}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_game_mechanics_tests}{GameMechanicsTests}}}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{private}\ GameObject\ playerObj;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{private}\ \doxymbox{\hyperlink{class_player_health}{PlayerHealth}}\ playerHealth;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{private}\ \doxymbox{\hyperlink{class_game_manager}{GameManager}}\ gameManager;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00014}00014\ \ \ \ \ [SetUp]}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00015}\doxymbox{\hyperlink{class_game_mechanics_tests_a3294ac6d31b2597fc04af336eb5c1bfa}{00015}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_game_mechanics_tests_a3294ac6d31b2597fc04af336eb5c1bfa}{Setup}}()}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00016}00016\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ UnityEngine.TestTools.LogAssert.ignoreFailingMessages\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ PlayerPrefs.DeleteAll();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ GameObject\ cameraObj\ =\ \textcolor{keyword}{new}\ GameObject(\textcolor{stringliteral}{"{}TestCamera"{}});}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ cameraObj.AddComponent<AudioListener>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ GameObject\ managerObj\ =\ \textcolor{keyword}{new}\ GameObject(\textcolor{stringliteral}{"{}Managers"{}});}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ gameManager\ =\ managerObj.AddComponent<\doxymbox{\hyperlink{class_game_manager}{GameManager}}>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_i_manager}{UIManager}}\ uiManager\ =\ managerObj.AddComponent<\doxymbox{\hyperlink{class_u_i_manager}{UIManager}}>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_audio_manager}{AudioManager}}\ audioManager\ =\ managerObj.AddComponent<\doxymbox{\hyperlink{class_audio_manager}{AudioManager}}>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ GameObject\ healthBarObj\ =\ \textcolor{keyword}{new}\ GameObject(\textcolor{stringliteral}{"{}HealthBar"{}});}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ uiManager.healthBarFill\ =\ healthBarObj.AddComponent<Image>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ GameObject\ scoreTextObj\ =\ \textcolor{keyword}{new}\ GameObject(\textcolor{stringliteral}{"{}ScoreText"{}});}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ uiManager.scoreText\ =\ scoreTextObj.AddComponent<TextMeshProUGUI>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ playerObj\ =\ \textcolor{keyword}{new}\ GameObject(\textcolor{stringliteral}{"{}TestPlayer"{}});}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ playerObj.tag\ =\ \textcolor{stringliteral}{"{}Player"{}};}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ playerObj.AddComponent<Rigidbody2D>().gravityScale\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ playerObj.AddComponent<BoxCollider2D>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ playerObj.AddComponent<SpriteRenderer>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ playerObj.AddComponent<Animator>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ GameObject\ groundCheckObj\ =\ \textcolor{keyword}{new}\ GameObject(\textcolor{stringliteral}{"{}GroundCheck"{}});}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ groundCheckObj.transform.SetParent(playerObj.transform);\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_player_controller}{PlayerController}}\ pc\ =\ playerObj.AddComponent<\doxymbox{\hyperlink{class_player_controller}{PlayerController}}>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ pc.groundCheck\ =\ groundCheckObj.transform;\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ playerHealth\ =\ playerObj.AddComponent<\doxymbox{\hyperlink{class_player_health}{PlayerHealth}}>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00052}00052\ \ \ \ \ [TearDown]}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00053}\doxymbox{\hyperlink{class_game_mechanics_tests_a095c212af7b02e01617a44c8bf3e9982}{00053}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_game_mechanics_tests_a095c212af7b02e01617a44c8bf3e9982}{Teardown}}()}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00054}00054\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ Object.DestroyImmediate(playerObj);}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ Object.DestroyImmediate(GameObject.Find(\textcolor{stringliteral}{"{}Managers"{}}));}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ Object.DestroyImmediate(GameObject.Find(\textcolor{stringliteral}{"{}TestCamera"{}}));}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00060}00060\ \ \ \ \ [UnityTest]}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00061}\doxymbox{\hyperlink{class_game_mechanics_tests_ab2af8d8e6b8d7175baf9a0fa9ff61ed8}{00061}}\ \ \ \ \ \textcolor{keyword}{public}\ IEnumerator\ \doxymbox{\hyperlink{class_game_mechanics_tests_ab2af8d8e6b8d7175baf9a0fa9ff61ed8}{PlayerHealth\_TakeDamage\_ReducesHealthBy25}}()}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00062}00062\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ initialHealth\ =\ playerHealth.maxHealth;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ playerHealth.TakeDamage(25,\ 1);}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ yield\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ Assert.AreEqual(initialHealth\ -\/\ 25,\ playerHealth.currentHealth,\ \textcolor{stringliteral}{"{}A\ játékos\ életereje\ nem\ csökkent\ pontosan\ 25-\/tel!"{}});}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00069}00069\ \ \ \ \ [UnityTest]}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00070}\doxymbox{\hyperlink{class_game_mechanics_tests_af7b7dc5cc0cea27119d6d0bcf211b73a}{00070}}\ \ \ \ \ \textcolor{keyword}{public}\ IEnumerator\ \doxymbox{\hyperlink{class_game_mechanics_tests_af7b7dc5cc0cea27119d6d0bcf211b73a}{MovingPlatform\_CollidingWithPlayer\_BecomesChild}}()}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00071}00071\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ GameObject\ platformObj\ =\ \textcolor{keyword}{new}\ GameObject(\textcolor{stringliteral}{"{}MovingPlatform"{}});}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ platformObj.AddComponent<BoxCollider2D>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_moving_platform}{MovingPlatform}}\ platformScript\ =\ platformObj.AddComponent<\doxymbox{\hyperlink{class_moving_platform}{MovingPlatform}}>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ platformScript.waypoints\ =\ \textcolor{keyword}{new}\ System.Collections.Generic.List<Transform>();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ playerObj.transform.position\ =\ platformObj.transform.position;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ yield\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ WaitForFixedUpdate();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ Assert.AreEqual(platformObj.transform,\ playerObj.transform.parent,\ \textcolor{stringliteral}{"{}A\ játékos\ nem\ tapadt\ hozzá\ a\ mozgó\ platformhoz!"{}});}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ playerObj.transform.SetParent(\textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ Object.DestroyImmediate(platformObj);}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00087}00087\ \ \ \ \ [UnityTest]}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00088}\doxymbox{\hyperlink{class_game_mechanics_tests_a42a59f3a71e761e8acd2b151c4aa149a}{00088}}\ \ \ \ \ \textcolor{keyword}{public}\ IEnumerator\ \doxymbox{\hyperlink{class_game_mechanics_tests_a42a59f3a71e761e8acd2b151c4aa149a}{GameManager\_AddingScore\_IncreasesTotalScore}}()}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00089}00089\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ gameManager.StartGame();}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ initialScore\ =\ gameManager.score;}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ gameManager.AddScore(1);}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ yield\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ Assert.AreEqual(initialScore\ +\ 1,\ gameManager.score,\ \textcolor{stringliteral}{"{}A\ GameManager\ pontszáma\ nem\ nőtt\ 1-\/gyel\ az\ érme\ felvétele\ után!"{}});}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_game_mechanics_tests_8cs_source_l00098}00098\ \}}
+
+\end{DoxyCode}

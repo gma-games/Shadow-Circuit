@@ -1,0 +1,19 @@
+\doxysection{Finish.\+cs}
+\hypertarget{_finish_8cs_source}{}\label{_finish_8cs_source}\index{Assets/Scripts/Finish.cs@{Assets/Scripts/Finish.cs}}
+\doxymbox{\hyperlink{_finish_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }UnityEngine;}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00003}\doxymbox{\hyperlink{class_finish}{00003}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_finish}{Finish}}\ :\ MonoBehaviour}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00005}00005\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ OnTriggerEnter2D(Collider2D\ collision)}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00006}00006\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00007}00007\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (collision.CompareTag(\textcolor{stringliteral}{"{}Player"{}}))}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00008}00008\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00009}00009\ \ \ \ \ \ \ \ \ \ \ \ \ Time.timeScale\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00010}00010\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_i_manager}{UIManager}}.\doxymbox{\hyperlink{class_u_i_manager_a006246dc7fcecbe2387d70731191d4f6}{Instance}}.\doxymbox{\hyperlink{class_u_i_manager_a5ec67ff4e337bad991fc034137208cc4}{ShowWinScreen}}();}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00011}00011\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00012}00012\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_finish_8cs_source_l00013}00013\ \}}
+
+\end{DoxyCode}

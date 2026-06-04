@@ -1,0 +1,185 @@
+\doxysection{Player\+Controller.\+cs}
+\hypertarget{_player_controller_8cs_source}{}\label{_player_controller_8cs_source}\index{Assets/Scripts/PlayerController.cs@{Assets/Scripts/PlayerController.cs}}
+\doxymbox{\hyperlink{_player_controller_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }UnityEngine;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00003}\doxymbox{\hyperlink{class_player_controller}{00003}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_player_controller}{PlayerController}}\ :\ MonoBehaviour}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00005}00005\ \ \ \ \ [Header(\textcolor{stringliteral}{"{}Mozgás\ attribútumok"{}})]}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00006}\doxymbox{\hyperlink{class_player_controller_abb12e85ca1b12efdbc8684bff2e19c4c}{00006}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_player_controller_abb12e85ca1b12efdbc8684bff2e19c4c}{moveSpeed}}\ =\ 5f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00007}\doxymbox{\hyperlink{class_player_controller_a7c109871eba0057fd2aa1856522a346d}{00007}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_player_controller_a7c109871eba0057fd2aa1856522a346d}{jumpForce}}\ =\ 8.5f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00008}\doxymbox{\hyperlink{class_player_controller_ade50b34819bd62daa9ba7d4d6adb7ab5}{00008}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_player_controller_ade50b34819bd62daa9ba7d4d6adb7ab5}{jumpContinuesForce}}\ =\ 1f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00009}\doxymbox{\hyperlink{class_player_controller_ad45e6f52ad5abdc588ad61e76586cd92}{00009}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_player_controller_ad45e6f52ad5abdc588ad61e76586cd92}{wallSlideSpeed}}\ =\ 2f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00011}00011\ \ \ \ \ [Header(\textcolor{stringliteral}{"{}Environment\ ellenrzés"{}})]}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00012}\doxymbox{\hyperlink{class_player_controller_ad870c44af9544c057897c33e9ac1f708}{00012}}\ \ \ \ \ \textcolor{keyword}{public}\ Transform\ \doxymbox{\hyperlink{class_player_controller_ad870c44af9544c057897c33e9ac1f708}{groundCheck}};}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00013}\doxymbox{\hyperlink{class_player_controller_a71858ced951cef89187a536163874730}{00013}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_player_controller_a71858ced951cef89187a536163874730}{groundCheckRadius}}\ =\ 0.2f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00014}\doxymbox{\hyperlink{class_player_controller_a9779debc71b336f2c4c1a03384118238}{00014}}\ \ \ \ \ \textcolor{keyword}{public}\ LayerMask\ \doxymbox{\hyperlink{class_player_controller_a9779debc71b336f2c4c1a03384118238}{groundLayer}};}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00015}\doxymbox{\hyperlink{class_player_controller_a756b23580eb450873808fdb183f570be}{00015}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_player_controller_a756b23580eb450873808fdb183f570be}{wallCheckDistance}}\ =\ 1f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00017}00017\ \ \ \ \ [Header(\textcolor{stringliteral}{"{}Ugrás\ attribútumok"{}})]}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00018}\doxymbox{\hyperlink{class_player_controller_aca1a0620fb13324611f4faffe8a89948}{00018}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_player_controller_aca1a0620fb13324611f4faffe8a89948}{coyoteTime}}\ =\ 0.2f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00019}\doxymbox{\hyperlink{class_player_controller_ade214a2babf8653a08796367fcceafc4}{00019}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_player_controller_ade214a2babf8653a08796367fcceafc4}{jumpBufferTime}}\ =\ 0.15f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00020}\doxymbox{\hyperlink{class_player_controller_ad31c28912a1712764bb66bce97dc344c}{00020}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_player_controller_ad31c28912a1712764bb66bce97dc344c}{extraJumpsValue}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{bool}\ isSneaking;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00024}00024\ \ \ \ \ \textcolor{comment}{//\ Privát\ változók\ a\ fizikához\ és\ állapotokhoz}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{private}\ Rigidbody2D\ rb;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{private}\ Animator\ animator;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{private}\ SpriteRenderer\ spriteRenderer;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{bool}\ isGrounded;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{bool}\ isTouchingWall;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{bool}\ isWallSliding;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00033}00033\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{float}\ coyoteTimeCounter;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{float}\ jumpBufferCounter;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00035}00035\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ extraJumps;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{void}\ Start()}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ rb\ =\ GetComponent<Rigidbody2D>();}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ animator\ =\ GetComponent<Animator>();}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ spriteRenderer\ =\ GetComponent<SpriteRenderer>();}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ extraJumps\ =\ \doxymbox{\hyperlink{class_player_controller_ad31c28912a1712764bb66bce97dc344c}{extraJumpsValue}};}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_checkpoint}{Checkpoint}}.\doxymbox{\hyperlink{class_checkpoint_a2b4356ff68896292ae5b72031352ed93}{savedPoisiton}}\ !=\ Vector2.zero)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ transform.position\ =\ \doxymbox{\hyperlink{class_checkpoint}{Checkpoint}}.\doxymbox{\hyperlink{class_checkpoint_a2b4356ff68896292ae5b72031352ed93}{savedPoisiton}};}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{void}\ Update()}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00052}00052\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_player_controller_a5ebfe098b2dc258ca8349e6951766883}{HandleInput}}();}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ UpdateAnimations();}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ FixedUpdate()}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00058}00058\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Fizikai\ ellenőrzések\ a\ FixedUpdate-\/ben\ a\ legstabilabbak}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ isGrounded\ =\ Physics2D.OverlapCircle(\doxymbox{\hyperlink{class_player_controller_ad870c44af9544c057897c33e9ac1f708}{groundCheck}}.position,\ \doxymbox{\hyperlink{class_player_controller_a71858ced951cef89187a536163874730}{groundCheckRadius}},\ \doxymbox{\hyperlink{class_player_controller_a9779debc71b336f2c4c1a03384118238}{groundLayer}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ isTouchingWall\ =\ Physics2D.Raycast(transform.position,\ spriteRenderer.flipX\ ?\ Vector2.left\ :\ Vector2.right,\ \doxymbox{\hyperlink{class_player_controller_a756b23580eb450873808fdb183f570be}{wallCheckDistance}},\ \doxymbox{\hyperlink{class_player_controller_a9779debc71b336f2c4c1a03384118238}{groundLayer}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00064}\doxymbox{\hyperlink{class_player_controller_a5ebfe098b2dc258ca8349e6951766883}{00064}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_controller_a5ebfe098b2dc258ca8349e6951766883}{HandleInput}}()}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Vízszintes\ mozgás}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ moveInput\ =\ Input.GetAxis(\textcolor{stringliteral}{"{}Horizontal"{}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_player_controller_aafd050470b3dafcbf9fed5eccb1a6c1c}{Move}}(moveInput);}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Coyote\ Time\ és\ Extra\ ugrás\ frissítése}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isGrounded)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ coyoteTimeCounter\ =\ \doxymbox{\hyperlink{class_player_controller_aca1a0620fb13324611f4faffe8a89948}{coyoteTime}};}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ extraJumps\ =\ \doxymbox{\hyperlink{class_player_controller_ad31c28912a1712764bb66bce97dc344c}{extraJumpsValue}};}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ coyoteTimeCounter\ -\/=\ Time.deltaTime;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Jump\ Buffer\ frissítése}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Input.GetKeyDown(KeyCode.Space))}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ jumpBufferCounter\ =\ \doxymbox{\hyperlink{class_player_controller_ade214a2babf8653a08796367fcceafc4}{jumpBufferTime}};}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ jumpBufferCounter\ -\/=\ Time.deltaTime;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Ugrás\ logika\ hívása}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (jumpBufferCounter\ >\ 0f)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_player_controller_a8a7010cb6f3c524737be3f6f77553df9}{Jump}}();}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Ugrás\ magasságának\ szabályozása}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Input.GetKey(KeyCode.Space)\ \&\&\ rb.linearVelocityY\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ rb.AddForceY(\doxymbox{\hyperlink{class_player_controller_ade50b34819bd62daa9ba7d4d6adb7ab5}{jumpContinuesForce}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00101}00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Gravitáció\ }}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00104}00104\ \ \ \ \ \ \ \ \ rb.gravityScale\ =\ (rb.linearVelocityY\ <\ 0)\ ?\ 3f\ :\ 2f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Falon\ csúszás}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ HandleWallSliding();}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00110}\doxymbox{\hyperlink{class_player_controller_aafd050470b3dafcbf9fed5eccb1a6c1c}{00110}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_controller_aafd050470b3dafcbf9fed5eccb1a6c1c}{Move}}(\textcolor{keywordtype}{float}\ direction)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00111}00111\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00112}00112\ \ \ \ \ \ \ \ \ rb.linearVelocity\ =\ \textcolor{keyword}{new}\ Vector2(direction\ *\ \doxymbox{\hyperlink{class_player_controller_abb12e85ca1b12efdbc8684bff2e19c4c}{moveSpeed}},\ rb.linearVelocity.y);}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Karakter\ megfordítása}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rb.linearVelocityX\ !=\ 0\ \&\&\ !isTouchingWall)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00116}00116\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ spriteRenderer.flipX\ =\ rb.linearVelocityX\ <\ 0;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00118}00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00119}00119\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00121}\doxymbox{\hyperlink{class_player_controller_a8a7010cb6f3c524737be3f6f77553df9}{00121}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_controller_a8a7010cb6f3c524737be3f6f77553df9}{Jump}}()}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00122}00122\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isWallSliding)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00124}00124\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ direction\ =\ spriteRenderer.flipX\ ?\ 1\ :\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ rb.linearVelocity\ =\ \textcolor{keyword}{new}\ Vector2(direction\ *\ 8f,\ \doxymbox{\hyperlink{class_player_controller_a7c109871eba0057fd2aa1856522a346d}{jumpForce}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ spriteRenderer.flipX\ =\ !spriteRenderer.flipX;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ jumpBufferCounter\ =\ 0f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_audio_manager}{AudioManager}}.\doxymbox{\hyperlink{class_audio_manager_af96f8bc4f9a0ad3f1a63a028bb31f790}{Instance}}.\doxymbox{\hyperlink{class_audio_manager_a6475a4b2c829237f005a70dc068955cd}{PlaySound}}(\textcolor{stringliteral}{"{}Jump"{}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (coyoteTimeCounter\ >\ 0f)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00132}00132\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ rb.linearVelocity\ =\ \textcolor{keyword}{new}\ Vector2(rb.linearVelocity.x,\ \doxymbox{\hyperlink{class_player_controller_a7c109871eba0057fd2aa1856522a346d}{jumpForce}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ coyoteTimeCounter\ =\ 0f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ jumpBufferCounter\ =\ 0f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_audio_manager}{AudioManager}}.\doxymbox{\hyperlink{class_audio_manager_af96f8bc4f9a0ad3f1a63a028bb31f790}{Instance}}.\doxymbox{\hyperlink{class_audio_manager_a6475a4b2c829237f005a70dc068955cd}{PlaySound}}(\textcolor{stringliteral}{"{}Jump"{}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (extraJumps\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00139}00139\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ rb.linearVelocity\ =\ \textcolor{keyword}{new}\ Vector2(rb.linearVelocity.x,\ \doxymbox{\hyperlink{class_player_controller_a7c109871eba0057fd2aa1856522a346d}{jumpForce}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ extraJumps-\/-\/;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ jumpBufferCounter\ =\ 0f;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_audio_manager}{AudioManager}}.\doxymbox{\hyperlink{class_audio_manager_af96f8bc4f9a0ad3f1a63a028bb31f790}{Instance}}.\doxymbox{\hyperlink{class_audio_manager_a6475a4b2c829237f005a70dc068955cd}{PlaySound}}(\textcolor{stringliteral}{"{}Jump"{}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00145}00145\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00147}\doxymbox{\hyperlink{class_player_controller_ac243916ecba0f4f5b256e078d265f5f3}{00147}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_controller_ac243916ecba0f4f5b256e078d265f5f3}{Sneak}}(\textcolor{keywordtype}{bool}\ state)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00148}00148\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00149}00149\ \ \ \ \ \ \ \ \ isSneaking\ =\ state;}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Később\ itt\ lehet\ felezni\ a\ sebességet,\ vagy\ átállítani\ a\ kollíziót}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00151}00151\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00153}00153\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ HandleWallSliding()}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00154}00154\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isTouchingWall\ \&\&\ !isGrounded\ \&\&\ rb.linearVelocityY\ <\ 0.15f)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00156}00156\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ isWallSliding\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ rb.linearVelocity\ =\ \textcolor{keyword}{new}\ Vector2(rb.linearVelocity.x,\ Mathf.Max(rb.linearVelocity.y,\ -\/\doxymbox{\hyperlink{class_player_controller_ad45e6f52ad5abdc588ad61e76586cd92}{wallSlideSpeed}}));}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00159}00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00161}00161\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ isWallSliding\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00163}00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00164}00164\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00166}00166\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ UpdateAnimations()}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00167}00167\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isGrounded)}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00169}00169\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ animator.Play(rb.linearVelocityX\ ==\ 0\ ?\ \textcolor{stringliteral}{"{}Player\_Idle"{}}\ :\ \textcolor{stringliteral}{"{}Player\_Run"{}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00171}00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00172}00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00173}00173\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isWallSliding)\ animator.Play(\textcolor{stringliteral}{"{}Player\_WallSlide"{}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rb.linearVelocityY\ >\ 0)\ animator.Play(\textcolor{stringliteral}{"{}Player\_jump"{}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ animator.Play(\textcolor{stringliteral}{"{}Player\_Fall"{}});}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00177}00177\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00178}00178\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_controller_8cs_source_l00179}00179\ \}}
+
+\end{DoxyCode}

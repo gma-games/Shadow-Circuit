@@ -1,0 +1,98 @@
+\doxysection{Audio\+Manager.\+cs}
+\hypertarget{_audio_manager_8cs_source}{}\label{_audio_manager_8cs_source}\index{Assets/Scripts/AudioManager.cs@{Assets/Scripts/AudioManager.cs}}
+\doxymbox{\hyperlink{_audio_manager_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }UnityEngine;}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00004}00004\ \textcolor{comment}{//\ Név\ adása\ a\ hangoknak\ a\ unityben}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00005}00005\ [System.Serializable]}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00006}\doxymbox{\hyperlink{class_sound}{00006}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_sound}{Sound}}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00008}\doxymbox{\hyperlink{class_sound_a6232daa7d1f983315cc0d10cf776ab76}{00008}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{class_sound_a6232daa7d1f983315cc0d10cf776ab76}{name}};}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00009}\doxymbox{\hyperlink{class_sound_ab7878c271c13d5e8fbdf25714e363b77}{00009}}\ \ \ \ \ \textcolor{keyword}{public}\ AudioClip\ \doxymbox{\hyperlink{class_sound_ab7878c271c13d5e8fbdf25714e363b77}{clip}};}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00010}00010\ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00012}\doxymbox{\hyperlink{class_audio_manager}{00012}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_audio_manager}{AudioManager}}\ :\ MonoBehaviour}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00014}\doxymbox{\hyperlink{class_audio_manager_af96f8bc4f9a0ad3f1a63a028bb31f790}{00014}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_audio_manager}{AudioManager}}\ \doxymbox{\hyperlink{class_audio_manager_af96f8bc4f9a0ad3f1a63a028bb31f790}{Instance}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{private}\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00016}00016\ \ \ \ \ [Header(\textcolor{stringliteral}{"{}Audio\ Sources"{}})]}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00017}\doxymbox{\hyperlink{class_audio_manager_a54db9f2d0d9838c238a56cc82b222773}{00017}}\ \ \ \ \ \textcolor{keyword}{public}\ AudioSource\ \doxymbox{\hyperlink{class_audio_manager_a54db9f2d0d9838c238a56cc82b222773}{musicSource}};}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00018}\doxymbox{\hyperlink{class_audio_manager_af20e9441762e9b8086842802fd93fd69}{00018}}\ \ \ \ \ \textcolor{keyword}{public}\ AudioSource\ \doxymbox{\hyperlink{class_audio_manager_af20e9441762e9b8086842802fd93fd69}{sfxSource}};}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00020}00020\ \ \ \ \ [Header(\textcolor{stringliteral}{"{}Audio\ Clips"{}})]}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00021}\doxymbox{\hyperlink{class_audio_manager_ac4b933f79ddc56f1124d4e122135059e}{00021}}\ \ \ \ \ \textcolor{keyword}{public}\ AudioClip\ \doxymbox{\hyperlink{class_audio_manager_ac4b933f79ddc56f1124d4e122135059e}{music}};}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00022}\doxymbox{\hyperlink{class_audio_manager_a6b50c23015f675056d23e3884faaf833}{00022}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_sound}{Sound}}[]\ \doxymbox{\hyperlink{class_audio_manager_a6b50c23015f675056d23e3884faaf833}{sfxList}};}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00024}00024\ \ \ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{private}\ Dictionary<string,\ AudioClip>\ soundEffects\ =\ \textcolor{keyword}{new}\ Dictionary<string,\ AudioClip>();}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ Awake()}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00028}00028\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Singleton\ beállítása}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_audio_manager_af96f8bc4f9a0ad3f1a63a028bb31f790}{Instance}}\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_audio_manager_af96f8bc4f9a0ad3f1a63a028bb31f790}{Instance}}\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_audio_manager_a6b50c23015f675056d23e3884faaf833}{sfxList}}\ ==\ \textcolor{keyword}{null})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zene\ a\ pályál\ váltása\ között\ is}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ DontDestroyOnLoad(gameObject);\ }}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ Destroy(gameObject);}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dictionar\ feltötlése\ az\ Inspectorban\ megadott\ listából}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (Sound\ s\ \textcolor{keywordflow}{in}\ \doxymbox{\hyperlink{class_audio_manager_a6b50c23015f675056d23e3884faaf833}{sfxList}})}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!soundEffects.ContainsKey(s.\doxymbox{\hyperlink{class_sound_a6232daa7d1f983315cc0d10cf776ab76}{name}}))}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ soundEffects.Add(s.\doxymbox{\hyperlink{class_sound_a6232daa7d1f983315cc0d10cf776ab76}{name}},\ s.\doxymbox{\hyperlink{class_sound_ab7878c271c13d5e8fbdf25714e363b77}{clip}});}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00055}00055\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ Start()}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00056}00056\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_audio_manager_ac4b933f79ddc56f1124d4e122135059e}{music}}\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_audio_manager_a36917da375b4841228f6ca8a944a72a0}{PlayMusic}}();}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00063}\doxymbox{\hyperlink{class_audio_manager_a6475a4b2c829237f005a70dc068955cd}{00063}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_audio_manager_a6475a4b2c829237f005a70dc068955cd}{PlaySound}}(\textcolor{keywordtype}{string}\ soundName)}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00064}00064\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (soundEffects.ContainsKey(soundName))}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_audio_manager_af20e9441762e9b8086842802fd93fd69}{sfxSource}}.PlayOneShot(soundEffects[soundName]);}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ Debug.LogWarning(\textcolor{stringliteral}{"{}Nem\ található\ ilyen\ nevű\ hang:\ "{}}\ +\ soundName);}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00075}\doxymbox{\hyperlink{class_audio_manager_ac17391999de66440e9f9d7835c1f4e0d}{00075}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_audio_manager_ac17391999de66440e9f9d7835c1f4e0d}{StopSound}}(\textcolor{keywordtype}{string}\ soundName)}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00076}00076\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00077}00077\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_audio_manager_af20e9441762e9b8086842802fd93fd69}{sfxSource}}.Stop();}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00079}00079\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00081}\doxymbox{\hyperlink{class_audio_manager_a36917da375b4841228f6ca8a944a72a0}{00081}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_audio_manager_a36917da375b4841228f6ca8a944a72a0}{PlayMusic}}()}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00082}00082\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ musicSource.clip\ =\ \doxymbox{\hyperlink{class_audio_manager_ac4b933f79ddc56f1124d4e122135059e}{music}};}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ musicSource.loop\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_audio_manager_a54db9f2d0d9838c238a56cc82b222773}{musicSource}}.Play();}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00086}00086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00088}\doxymbox{\hyperlink{class_audio_manager_aa3da61250948e1881a7c3993cf9e5af3}{00088}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_audio_manager_aa3da61250948e1881a7c3993cf9e5af3}{StopMusic}}()}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00089}00089\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_audio_manager_a54db9f2d0d9838c238a56cc82b222773}{musicSource}}.Stop();}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00091}00091\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_audio_manager_8cs_source_l00092}00092\ \}}
+
+\end{DoxyCode}

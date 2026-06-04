@@ -1,0 +1,216 @@
+\doxysection{Player\+Controller Class Reference}
+\hypertarget{class_player_controller}{}\label{class_player_controller}\index{PlayerController@{PlayerController}}
+Inheritance diagram for Player\+Controller:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_player_controller_a5ebfe098b2dc258ca8349e6951766883}{Handle\+Input}} ()
+\item 
+void \doxymbox{\hyperlink{class_player_controller_aafd050470b3dafcbf9fed5eccb1a6c1c}{Move}} (float direction)
+\item 
+void \doxymbox{\hyperlink{class_player_controller_a8a7010cb6f3c524737be3f6f77553df9}{Jump}} ()
+\item 
+void \doxymbox{\hyperlink{class_player_controller_ac243916ecba0f4f5b256e078d265f5f3}{Sneak}} (bool state)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \doxymbox{\hyperlink{class_player_controller_abb12e85ca1b12efdbc8684bff2e19c4c}{move\+Speed}} = 5f
+\item 
+float \doxymbox{\hyperlink{class_player_controller_a7c109871eba0057fd2aa1856522a346d}{jump\+Force}} = 8.\+5f
+\item 
+float \doxymbox{\hyperlink{class_player_controller_ade50b34819bd62daa9ba7d4d6adb7ab5}{jump\+Continues\+Force}} = 1f
+\item 
+float \doxymbox{\hyperlink{class_player_controller_ad45e6f52ad5abdc588ad61e76586cd92}{wall\+Slide\+Speed}} = 2f
+\item 
+Transform \doxymbox{\hyperlink{class_player_controller_ad870c44af9544c057897c33e9ac1f708}{ground\+Check}}
+\item 
+float \doxymbox{\hyperlink{class_player_controller_a71858ced951cef89187a536163874730}{ground\+Check\+Radius}} = 0.\+2f
+\item 
+Layer\+Mask \doxymbox{\hyperlink{class_player_controller_a9779debc71b336f2c4c1a03384118238}{ground\+Layer}}
+\item 
+float \doxymbox{\hyperlink{class_player_controller_a756b23580eb450873808fdb183f570be}{wall\+Check\+Distance}} = 1f
+\item 
+float \doxymbox{\hyperlink{class_player_controller_aca1a0620fb13324611f4faffe8a89948}{coyote\+Time}} = 0.\+2f
+\item 
+float \doxymbox{\hyperlink{class_player_controller_ade214a2babf8653a08796367fcceafc4}{jump\+Buffer\+Time}} = 0.\+15f
+\item 
+int \doxymbox{\hyperlink{class_player_controller_ad31c28912a1712764bb66bce97dc344c}{extra\+Jumps\+Value}} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00003}{3}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+
+
+\label{class_player_controller_doc-func-members}
+\Hypertarget{class_player_controller_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_controller_a5ebfe098b2dc258ca8349e6951766883}\index{PlayerController@{PlayerController}!HandleInput@{HandleInput}}
+\index{HandleInput@{HandleInput}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{HandleInput()}{HandleInput()}}
+{\footnotesize\ttfamily \label{class_player_controller_a5ebfe098b2dc258ca8349e6951766883} 
+void Player\+Controller.\+Handle\+Input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00064}{64}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_a8a7010cb6f3c524737be3f6f77553df9}\index{PlayerController@{PlayerController}!Jump@{Jump}}
+\index{Jump@{Jump}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{Jump()}{Jump()}}
+{\footnotesize\ttfamily \label{class_player_controller_a8a7010cb6f3c524737be3f6f77553df9} 
+void Player\+Controller.\+Jump (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00121}{121}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_aafd050470b3dafcbf9fed5eccb1a6c1c}\index{PlayerController@{PlayerController}!Move@{Move}}
+\index{Move@{Move}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily \label{class_player_controller_aafd050470b3dafcbf9fed5eccb1a6c1c} 
+void Player\+Controller.\+Move (\begin{DoxyParamCaption}\item[{float}]{direction}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00110}{110}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_ac243916ecba0f4f5b256e078d265f5f3}\index{PlayerController@{PlayerController}!Sneak@{Sneak}}
+\index{Sneak@{Sneak}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{Sneak()}{Sneak()}}
+{\footnotesize\ttfamily \label{class_player_controller_ac243916ecba0f4f5b256e078d265f5f3} 
+void Player\+Controller.\+Sneak (\begin{DoxyParamCaption}\item[{bool}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00147}{147}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+
+
+\label{class_player_controller_doc-variable-members}
+\Hypertarget{class_player_controller_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_player_controller_aca1a0620fb13324611f4faffe8a89948}\index{PlayerController@{PlayerController}!coyoteTime@{coyoteTime}}
+\index{coyoteTime@{coyoteTime}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{coyoteTime}{coyoteTime}}
+{\footnotesize\ttfamily \label{class_player_controller_aca1a0620fb13324611f4faffe8a89948} 
+float Player\+Controller.\+coyote\+Time = 0.\+2f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00018}{18}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_ad31c28912a1712764bb66bce97dc344c}\index{PlayerController@{PlayerController}!extraJumpsValue@{extraJumpsValue}}
+\index{extraJumpsValue@{extraJumpsValue}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{extraJumpsValue}{extraJumpsValue}}
+{\footnotesize\ttfamily \label{class_player_controller_ad31c28912a1712764bb66bce97dc344c} 
+int Player\+Controller.\+extra\+Jumps\+Value = 1}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00020}{20}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_ad870c44af9544c057897c33e9ac1f708}\index{PlayerController@{PlayerController}!groundCheck@{groundCheck}}
+\index{groundCheck@{groundCheck}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{groundCheck}{groundCheck}}
+{\footnotesize\ttfamily \label{class_player_controller_ad870c44af9544c057897c33e9ac1f708} 
+Transform Player\+Controller.\+ground\+Check}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00012}{12}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_a71858ced951cef89187a536163874730}\index{PlayerController@{PlayerController}!groundCheckRadius@{groundCheckRadius}}
+\index{groundCheckRadius@{groundCheckRadius}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{groundCheckRadius}{groundCheckRadius}}
+{\footnotesize\ttfamily \label{class_player_controller_a71858ced951cef89187a536163874730} 
+float Player\+Controller.\+ground\+Check\+Radius = 0.\+2f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00013}{13}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_a9779debc71b336f2c4c1a03384118238}\index{PlayerController@{PlayerController}!groundLayer@{groundLayer}}
+\index{groundLayer@{groundLayer}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{groundLayer}{groundLayer}}
+{\footnotesize\ttfamily \label{class_player_controller_a9779debc71b336f2c4c1a03384118238} 
+Layer\+Mask Player\+Controller.\+ground\+Layer}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00014}{14}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_ade214a2babf8653a08796367fcceafc4}\index{PlayerController@{PlayerController}!jumpBufferTime@{jumpBufferTime}}
+\index{jumpBufferTime@{jumpBufferTime}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{jumpBufferTime}{jumpBufferTime}}
+{\footnotesize\ttfamily \label{class_player_controller_ade214a2babf8653a08796367fcceafc4} 
+float Player\+Controller.\+jump\+Buffer\+Time = 0.\+15f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00019}{19}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_ade50b34819bd62daa9ba7d4d6adb7ab5}\index{PlayerController@{PlayerController}!jumpContinuesForce@{jumpContinuesForce}}
+\index{jumpContinuesForce@{jumpContinuesForce}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{jumpContinuesForce}{jumpContinuesForce}}
+{\footnotesize\ttfamily \label{class_player_controller_ade50b34819bd62daa9ba7d4d6adb7ab5} 
+float Player\+Controller.\+jump\+Continues\+Force = 1f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00008}{8}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_a7c109871eba0057fd2aa1856522a346d}\index{PlayerController@{PlayerController}!jumpForce@{jumpForce}}
+\index{jumpForce@{jumpForce}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{jumpForce}{jumpForce}}
+{\footnotesize\ttfamily \label{class_player_controller_a7c109871eba0057fd2aa1856522a346d} 
+float Player\+Controller.\+jump\+Force = 8.\+5f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00007}{7}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_abb12e85ca1b12efdbc8684bff2e19c4c}\index{PlayerController@{PlayerController}!moveSpeed@{moveSpeed}}
+\index{moveSpeed@{moveSpeed}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{moveSpeed}{moveSpeed}}
+{\footnotesize\ttfamily \label{class_player_controller_abb12e85ca1b12efdbc8684bff2e19c4c} 
+float Player\+Controller.\+move\+Speed = 5f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00006}{6}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_a756b23580eb450873808fdb183f570be}\index{PlayerController@{PlayerController}!wallCheckDistance@{wallCheckDistance}}
+\index{wallCheckDistance@{wallCheckDistance}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{wallCheckDistance}{wallCheckDistance}}
+{\footnotesize\ttfamily \label{class_player_controller_a756b23580eb450873808fdb183f570be} 
+float Player\+Controller.\+wall\+Check\+Distance = 1f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00015}{15}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+\Hypertarget{class_player_controller_ad45e6f52ad5abdc588ad61e76586cd92}\index{PlayerController@{PlayerController}!wallSlideSpeed@{wallSlideSpeed}}
+\index{wallSlideSpeed@{wallSlideSpeed}!PlayerController@{PlayerController}}
+\doxysubsubsection{\texorpdfstring{wallSlideSpeed}{wallSlideSpeed}}
+{\footnotesize\ttfamily \label{class_player_controller_ad45e6f52ad5abdc588ad61e76586cd92} 
+float Player\+Controller.\+wall\+Slide\+Speed = 2f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_controller_8cs_source_l00009}{9}} of file \doxymbox{\hyperlink{_player_controller_8cs_source}{Player\+Controller.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Assets/\+\+Scripts/\+\doxymbox{\hyperlink{_player_controller_8cs}{Player\+Controller.\+cs}}\end{DoxyCompactItemize}

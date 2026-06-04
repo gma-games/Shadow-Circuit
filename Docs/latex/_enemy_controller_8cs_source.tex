@@ -1,0 +1,136 @@
+\doxysection{Enemy\+Controller.\+cs}
+\hypertarget{_enemy_controller_8cs_source}{}\label{_enemy_controller_8cs_source}\index{Assets/Scripts/EnemyController.cs@{Assets/Scripts/EnemyController.cs}}
+\doxymbox{\hyperlink{_enemy_controller_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }UnityEngine;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00004}\doxymbox{\hyperlink{class_enemy_controller}{00004}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_enemy_controller}{EnemyController}}\ :\ MonoBehaviour}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00006}00006\ \ \ \ \ [Header(\textcolor{stringliteral}{"{}Mozgás\ attribútumok"{}})]}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00007}\doxymbox{\hyperlink{class_enemy_controller_a2c5a111549b1d4d9f8141fd4c13bfcd5}{00007}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_enemy_controller_a2c5a111549b1d4d9f8141fd4c13bfcd5}{speed}}\ =\ 2f;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00008}\doxymbox{\hyperlink{class_enemy_controller_aaa24566a2aa16aed9695f5a19e0a197e}{00008}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_enemy_controller_aaa24566a2aa16aed9695f5a19e0a197e}{chargeSpeed}}\ =\ 5f;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00010}00010\ \ \ \ \ [Header(\textcolor{stringliteral}{"{}Detection"{}})]}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00011}\doxymbox{\hyperlink{class_enemy_controller_ab052caba71c96de4a399f88a9148cfec}{00011}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_enemy_controller_ab052caba71c96de4a399f88a9148cfec}{detectionRange}}\ =\ 3f;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00012}\doxymbox{\hyperlink{class_enemy_controller_aa33b7ac1f78b7cbfd87e75ed1118361e}{00012}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_enemy_controller_aa33b7ac1f78b7cbfd87e75ed1118361e}{loseDistance}}\ =\ 5f;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00013}\doxymbox{\hyperlink{class_enemy_controller_aead941d552249a10db582c4a2167d722}{00013}}\ \ \ \ \ \textcolor{keyword}{public}\ LayerMask\ \doxymbox{\hyperlink{class_enemy_controller_aead941d552249a10db582c4a2167d722}{playerLayer}};}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00015}00015\ \ \ \ \ [Header(\textcolor{stringliteral}{"{}Patrol\ Route"{}})]}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00016}\doxymbox{\hyperlink{class_enemy_controller_a0abbd76617dc12a465cfc30c1fa20758}{00016}}\ \ \ \ \ \textcolor{keyword}{public}\ List<Transform>\ \doxymbox{\hyperlink{class_enemy_controller_a0abbd76617dc12a465cfc30c1fa20758}{patrolPoints}};}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ currentPointIndex;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{private}\ \doxymbox{\hyperlink{class_finite_state_machine}{FiniteStateMachine}}\ fsm;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{private}\ SpriteRenderer\ spriteRenderer;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{private}\ Transform\ targetPlayer;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{float}\ searchTimer\ =\ 0f;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{void}\ Start()}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ spriteRenderer\ =\ GetComponent<SpriteRenderer>();}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00030}00030\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ fsm\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_finite_state_machine}{FiniteStateMachine}}();}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ fsm.ChangeState(\doxymbox{\hyperlink{_finite_state_machine_8cs_afa7c83b36b8a04d477dd0b7ce04e07ca}{EnemyState}}.Patrol);}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Melyik\ állapot\ melyik\ metódus}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ fsm.stateActions[\doxymbox{\hyperlink{_finite_state_machine_8cs_afa7c83b36b8a04d477dd0b7ce04e07ca}{EnemyState}}.Patrol]\ =\ Patrol;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ fsm.stateActions[\doxymbox{\hyperlink{_finite_state_machine_8cs_afa7c83b36b8a04d477dd0b7ce04e07ca}{EnemyState}}.Chase]\ =\ ChasePlayer;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ fsm.stateActions[\doxymbox{\hyperlink{_finite_state_machine_8cs_afa7c83b36b8a04d477dd0b7ce04e07ca}{EnemyState}}.Search]\ =\ SearchPlayer;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{void}\ Update()}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00041}00041\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ UpdateState();\ \ \ \ \ \ \ \textcolor{comment}{//\ Ellenőrzés\ ,hohyx\ kell\ e\ állapotpt\ váltani}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ fsm.\doxymbox{\hyperlink{class_finite_state_machine_ae353458195be0d2f038398ec418cea8e}{ExecuteState}}();\ \ \textcolor{comment}{//\ aktuálios\ állapot\ fuittatása}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00046}00046\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ UpdateState()}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00047}00047\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ canSeePlayer\ =\ DetectPlayer();}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ha\ őrjáratozik,\ de\ meglátja\ a\ játékost\ -\/>\ Üldözés!}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fsm.currentState\ ==\ \doxymbox{\hyperlink{_finite_state_machine_8cs_afa7c83b36b8a04d477dd0b7ce04e07ca}{EnemyState}}.Patrol\ \&\&\ canSeePlayer)}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ fsm.ChangeState(\doxymbox{\hyperlink{_finite_state_machine_8cs_afa7c83b36b8a04d477dd0b7ce04e07ca}{EnemyState}}.Chase);}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ha\ üldözi,\ de\ túl\ messze\ ment\ a\ játékos\ -\/>\ Keresés!}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (fsm.currentState\ ==\ \doxymbox{\hyperlink{_finite_state_machine_8cs_afa7c83b36b8a04d477dd0b7ce04e07ca}{EnemyState}}.Chase\ \&\&\ !canSeePlayer)}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ searchTimer\ =\ 2f;\ \textcolor{comment}{//\ 2\ másodpercig\ fog\ keresni}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ fsm.ChangeState(\doxymbox{\hyperlink{_finite_state_machine_8cs_afa7c83b36b8a04d477dd0b7ce04e07ca}{EnemyState}}.Search);}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ Patrol()}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00064}00064\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_enemy_controller_a0abbd76617dc12a465cfc30c1fa20758}{patrolPoints}}.Count\ ==\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Vector2.Distance(transform.position,\ \doxymbox{\hyperlink{class_enemy_controller_a0abbd76617dc12a465cfc30c1fa20758}{patrolPoints}}[currentPointIndex].position)\ <\ 0.25f)}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ currentPointIndex++;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentPointIndex\ >=\ \doxymbox{\hyperlink{class_enemy_controller_a0abbd76617dc12a465cfc30c1fa20758}{patrolPoints}}.Count)\ currentPointIndex\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ MoveTowards(\doxymbox{\hyperlink{class_enemy_controller_a0abbd76617dc12a465cfc30c1fa20758}{patrolPoints}}[currentPointIndex].position,\ \doxymbox{\hyperlink{class_enemy_controller_a2c5a111549b1d4d9f8141fd4c13bfcd5}{speed}});}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00076}00076\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ ChasePlayer()}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00077}00077\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (targetPlayer\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ Vector2\ targetPos\ =\ \textcolor{keyword}{new}\ Vector2(targetPlayer.position.x,\ transform.position.y);}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ MoveTowards(targetPos,\ \doxymbox{\hyperlink{class_enemy_controller_aaa24566a2aa16aed9695f5a19e0a197e}{chargeSpeed}});}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00085}00085\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ SearchPlayer()}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00086}00086\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ searchTimer\ -\/=\ Time.deltaTime;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (searchTimer\ <=\ 0)}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ha\ lejárt\ az\ idő,\ és\ nem\ találta\ meg,\ visszaáll\ őrjáratozni}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ targetPlayer\ =\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ fsm.ChangeState(\doxymbox{\hyperlink{_finite_state_machine_8cs_afa7c83b36b8a04d477dd0b7ce04e07ca}{EnemyState}}.Patrol);}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00097}00097\ \ \ \ \ \textcolor{comment}{//\ \ Segéd\ metódusok\ }}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00099}00099\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ MoveTowards(Vector2\ targetPosition,\ \textcolor{keywordtype}{float}\ currentSpeed)}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00100}00100\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00101}00101\ \ \ \ \ \ \ \ \ transform.position\ =\ Vector2.MoveTowards(transform.position,\ targetPosition,\ currentSpeed\ *\ Time.deltaTime);}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00104}00104\ \ \ \ \ \ \ \ \ spriteRenderer.flipX\ =\ (transform.position.x\ -\/\ targetPosition.x)\ <\ 0f;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00107}00107\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{bool}\ DetectPlayer()}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00108}00108\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00109}00109\ \ \ \ \ \ \ \ \ Vector2\ lookDirection\ =\ spriteRenderer.flipX\ ?\ Vector2.left\ :\ Vector2.right;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00111}00111\ \ \ \ \ \ \ \ \ RaycastHit2D\ hit\ =\ Physics2D.Raycast(transform.position,\ lookDirection,\ \doxymbox{\hyperlink{class_enemy_controller_ab052caba71c96de4a399f88a9148cfec}{detectionRange}},\ \doxymbox{\hyperlink{class_enemy_controller_aead941d552249a10db582c4a2167d722}{playerLayer}});}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hit.collider\ !=\ \textcolor{keyword}{null}\ \&\&\ hit.collider.CompareTag(\textcolor{stringliteral}{"{}Player"{}}))}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00114}00114\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ targetPlayer\ =\ hit.transform;}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00117}00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (targetPlayer\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00120}00120\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Vector2.Distance(transform.position,\ targetPlayer.position)\ >\ \doxymbox{\hyperlink{class_enemy_controller_aa33b7ac1f78b7cbfd87e75ed1118361e}{loseDistance}})}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Elvesztettük!}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Még\ követjük}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00126}00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00129}00129\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_controller_8cs_source_l00130}00130\ \}}
+
+\end{DoxyCode}

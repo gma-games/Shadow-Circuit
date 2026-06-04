@@ -1,0 +1,240 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+Inheritance diagram for Player:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_player_ae2badb19e0926afb66111dec3f5f756c}{Play\+SFX}} (Audio\+Clip audio\+Clip, float volume=1f)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{class_player_ae88ca651fe71be4101d315c812539ddc}{key}}
+\item 
+int \doxymbox{\hyperlink{class_player_ab064f330cef84e2e062fd6446db24184}{health}} = 100
+\item 
+float \doxymbox{\hyperlink{class_player_af75dce28d0c467e06f984717a283ebcb}{move\+Speed}} = 5f
+\item 
+float \doxymbox{\hyperlink{class_player_ade3dd7187b97e6d44a2ff0adc946b81e}{jump\+Force}} = 8.\+5f
+\item 
+float \doxymbox{\hyperlink{class_player_ab23a0a715ab1b139b056ea5090d73aec}{jump\+Continues\+Force}} = 1f
+\item 
+Transform \doxymbox{\hyperlink{class_player_a25c83185db2798ffe683a554ef97e940}{ground\+Check}}
+\item 
+float \doxymbox{\hyperlink{class_player_a6e65d4196fcc5efc836d0a393cf21729}{ground\+Check\+Radius}} = 0.\+2f
+\item 
+Layer\+Mask \doxymbox{\hyperlink{class_player_abe636b2256fa4f944f8f9fea808be2b3}{ground\+Layer}}
+\item 
+Audio\+Clip \doxymbox{\hyperlink{class_player_ac823e8a74993d90dd8e2fc393916e4a9}{jump\+Clip}}
+\item 
+Audio\+Clip \doxymbox{\hyperlink{class_player_a569a3b0cfac8971e7343b298946389c6}{hurt\+Clip}}
+\item 
+float \doxymbox{\hyperlink{class_player_a1ede9a881701b3dfd8bb324f00eb7e2f}{i\+Frame\+Duration}} = 1f
+\item 
+float \doxymbox{\hyperlink{class_player_a25c3b6fdf3c7b14c15f78b9b13103f9f}{wall\+Check\+Distance}} = 1f
+\item 
+float \doxymbox{\hyperlink{class_player_a80262b881055aa6fd79a657f349422ea}{wall\+Slide\+Speed}} = 2f
+\item 
+int \doxymbox{\hyperlink{class_player_a99d2f6123e2b08be369394ddb341dfa8}{extra\+Jumps\+Value}} = 1
+\item 
+float \doxymbox{\hyperlink{class_player_a0ff7b63b9c4164c6c15072e3e6ee1575}{coyote\+Time}} = 0.\+2f
+\item 
+float \doxymbox{\hyperlink{class_player_ab86094d49f5c58bfda78abcd6bd52fb7}{jump\+Buffer\+Time}} = 0.\+15f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00008}{8}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+
+
+\label{class_player_doc-func-members}
+\Hypertarget{class_player_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_ae2badb19e0926afb66111dec3f5f756c}\index{Player@{Player}!PlaySFX@{PlaySFX}}
+\index{PlaySFX@{PlaySFX}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{PlaySFX()}{PlaySFX()}}
+{\footnotesize\ttfamily \label{class_player_ae2badb19e0926afb66111dec3f5f756c} 
+void Player.\+Play\+SFX (\begin{DoxyParamCaption}\item[{Audio\+Clip}]{audio\+Clip}{, }\item[{float}]{volume}{ = {\ttfamily 1f}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00241}{241}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+
+
+\label{class_player_doc-variable-members}
+\Hypertarget{class_player_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_player_a0ff7b63b9c4164c6c15072e3e6ee1575}\index{Player@{Player}!coyoteTime@{coyoteTime}}
+\index{coyoteTime@{coyoteTime}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{coyoteTime}{coyoteTime}}
+{\footnotesize\ttfamily \label{class_player_a0ff7b63b9c4164c6c15072e3e6ee1575} 
+float Player.\+coyote\+Time = 0.\+2f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00044}{44}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_a99d2f6123e2b08be369394ddb341dfa8}\index{Player@{Player}!extraJumpsValue@{extraJumpsValue}}
+\index{extraJumpsValue@{extraJumpsValue}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{extraJumpsValue}{extraJumpsValue}}
+{\footnotesize\ttfamily \label{class_player_a99d2f6123e2b08be369394ddb341dfa8} 
+int Player.\+extra\+Jumps\+Value = 1}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00039}{39}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_a25c83185db2798ffe683a554ef97e940}\index{Player@{Player}!groundCheck@{groundCheck}}
+\index{groundCheck@{groundCheck}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{groundCheck}{groundCheck}}
+{\footnotesize\ttfamily \label{class_player_a25c83185db2798ffe683a554ef97e940} 
+Transform Player.\+ground\+Check}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00015}{15}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_a6e65d4196fcc5efc836d0a393cf21729}\index{Player@{Player}!groundCheckRadius@{groundCheckRadius}}
+\index{groundCheckRadius@{groundCheckRadius}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{groundCheckRadius}{groundCheckRadius}}
+{\footnotesize\ttfamily \label{class_player_a6e65d4196fcc5efc836d0a393cf21729} 
+float Player.\+ground\+Check\+Radius = 0.\+2f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00016}{16}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_abe636b2256fa4f944f8f9fea808be2b3}\index{Player@{Player}!groundLayer@{groundLayer}}
+\index{groundLayer@{groundLayer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{groundLayer}{groundLayer}}
+{\footnotesize\ttfamily \label{class_player_abe636b2256fa4f944f8f9fea808be2b3} 
+Layer\+Mask Player.\+ground\+Layer}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00017}{17}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_ab064f330cef84e2e062fd6446db24184}\index{Player@{Player}!health@{health}}
+\index{health@{health}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{health}{health}}
+{\footnotesize\ttfamily \label{class_player_ab064f330cef84e2e062fd6446db24184} 
+int Player.\+health = 100}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00011}{11}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_a569a3b0cfac8971e7343b298946389c6}\index{Player@{Player}!hurtClip@{hurtClip}}
+\index{hurtClip@{hurtClip}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{hurtClip}{hurtClip}}
+{\footnotesize\ttfamily \label{class_player_a569a3b0cfac8971e7343b298946389c6} 
+Audio\+Clip Player.\+hurt\+Clip}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00021}{21}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_a1ede9a881701b3dfd8bb324f00eb7e2f}\index{Player@{Player}!iFrameDuration@{iFrameDuration}}
+\index{iFrameDuration@{iFrameDuration}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{iFrameDuration}{iFrameDuration}}
+{\footnotesize\ttfamily \label{class_player_a1ede9a881701b3dfd8bb324f00eb7e2f} 
+float Player.\+i\+Frame\+Duration = 1f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00024}{24}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_ab86094d49f5c58bfda78abcd6bd52fb7}\index{Player@{Player}!jumpBufferTime@{jumpBufferTime}}
+\index{jumpBufferTime@{jumpBufferTime}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{jumpBufferTime}{jumpBufferTime}}
+{\footnotesize\ttfamily \label{class_player_ab86094d49f5c58bfda78abcd6bd52fb7} 
+float Player.\+jump\+Buffer\+Time = 0.\+15f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00047}{47}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_ac823e8a74993d90dd8e2fc393916e4a9}\index{Player@{Player}!jumpClip@{jumpClip}}
+\index{jumpClip@{jumpClip}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{jumpClip}{jumpClip}}
+{\footnotesize\ttfamily \label{class_player_ac823e8a74993d90dd8e2fc393916e4a9} 
+Audio\+Clip Player.\+jump\+Clip}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00020}{20}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_ab23a0a715ab1b139b056ea5090d73aec}\index{Player@{Player}!jumpContinuesForce@{jumpContinuesForce}}
+\index{jumpContinuesForce@{jumpContinuesForce}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{jumpContinuesForce}{jumpContinuesForce}}
+{\footnotesize\ttfamily \label{class_player_ab23a0a715ab1b139b056ea5090d73aec} 
+float Player.\+jump\+Continues\+Force = 1f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00014}{14}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_ade3dd7187b97e6d44a2ff0adc946b81e}\index{Player@{Player}!jumpForce@{jumpForce}}
+\index{jumpForce@{jumpForce}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{jumpForce}{jumpForce}}
+{\footnotesize\ttfamily \label{class_player_ade3dd7187b97e6d44a2ff0adc946b81e} 
+float Player.\+jump\+Force = 8.\+5f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00013}{13}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_ae88ca651fe71be4101d315c812539ddc}\index{Player@{Player}!key@{key}}
+\index{key@{key}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily \label{class_player_ae88ca651fe71be4101d315c812539ddc} 
+int Player.\+key}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00010}{10}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_af75dce28d0c467e06f984717a283ebcb}\index{Player@{Player}!moveSpeed@{moveSpeed}}
+\index{moveSpeed@{moveSpeed}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{moveSpeed}{moveSpeed}}
+{\footnotesize\ttfamily \label{class_player_af75dce28d0c467e06f984717a283ebcb} 
+float Player.\+move\+Speed = 5f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00012}{12}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_a25c3b6fdf3c7b14c15f78b9b13103f9f}\index{Player@{Player}!wallCheckDistance@{wallCheckDistance}}
+\index{wallCheckDistance@{wallCheckDistance}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{wallCheckDistance}{wallCheckDistance}}
+{\footnotesize\ttfamily \label{class_player_a25c3b6fdf3c7b14c15f78b9b13103f9f} 
+float Player.\+wall\+Check\+Distance = 1f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00028}{28}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+\Hypertarget{class_player_a80262b881055aa6fd79a657f349422ea}\index{Player@{Player}!wallSlideSpeed@{wallSlideSpeed}}
+\index{wallSlideSpeed@{wallSlideSpeed}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{wallSlideSpeed}{wallSlideSpeed}}
+{\footnotesize\ttfamily \label{class_player_a80262b881055aa6fd79a657f349422ea} 
+float Player.\+wall\+Slide\+Speed = 2f}
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cs_source_l00029}{29}} of file \doxymbox{\hyperlink{_player_8cs_source}{Player.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Assets/\+\+Scripts/\+\doxymbox{\hyperlink{_player_8cs}{Player.\+cs}}\end{DoxyCompactItemize}
