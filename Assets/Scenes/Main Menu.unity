@@ -225,7 +225,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level3
+          m_StringArgument: Level_3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &46834514
@@ -652,7 +652,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GameScene
+          m_StringArgument: Level_1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &909425836
@@ -1199,7 +1199,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Kil\xE9p\xE9s"
+  m_text: 'Exit
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2141,7 +2143,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level2
+          m_StringArgument: Level_2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2082434380

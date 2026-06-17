@@ -80,11 +80,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1958154087
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4986890610287934012, guid: 274d64617113287499ed1c4165d1d8f3, type: 3}
+  m_Sprite: {fileID: -5104526033866522987, guid: 11df745b8831ea4428d8230c71e254f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -154,7 +154,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -174,4 +174,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6489827e631d247a809b72105b6f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
-  coinClip: {fileID: 8300000, guid: 4810b5971951446d2ba39f367a2dc2d6, type: 3}
