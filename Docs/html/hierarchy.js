@@ -83,7 +83,6 @@ var hierarchy =
       [ "TogglePlatform", "class_toggle_platform.html", null ],
       [ "UIManager", "class_u_i_manager.html", null ]
     ] ],
-    [ "SaveableObjectFixer", "class_saveable_object_fixer.html", null ],
     [ "ScriptableObject", null, [
       [ "ReadmeBE2", "class_readme_b_e2.html", null ]
     ] ],

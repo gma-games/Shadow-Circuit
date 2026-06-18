@@ -66,7 +66,6 @@ var annotated_dup =
     [ "ReadmeEditorBE2", "class_readme_editor_b_e2.html", "class_readme_editor_b_e2" ],
     [ "RestartGame", "class_restart_game.html", "class_restart_game" ],
     [ "SaveableObject", "class_saveable_object.html", "class_saveable_object" ],
-    [ "SaveableObjectFixer", "class_saveable_object_fixer.html", null ],
     [ "Sound", "class_sound.html", "class_sound" ],
     [ "Switch", "class_switch.html", "class_switch" ],
     [ "SwitchDoor", "class_switch_door.html", "class_switch_door" ],
