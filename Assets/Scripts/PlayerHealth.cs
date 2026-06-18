@@ -133,6 +133,11 @@ public class PlayerHealth : MonoBehaviour
             AudioManager.Instance.PlaySound("Respawn");
         }
         currentHealth = maxHealth;
+
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.SetKeycardUI(false);
+        }
         if (UIManager.Instance != null)
         {
             UIManager.Instance.UpdateHealthDisplay(1f);
