@@ -1,18 +1,30 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; 
+using TMPro;
 
 public class Checkpoint : MonoBehaviour
 {
-    public static Vector2 savedPoisiton = Vector2.zero;
+    [Header("Sztori Szövegbuborék")]
+    public GameObject speechBubble;
+    public TextMeshProUGUI bubbleTextDisplay;
+    [TextArea(3, 5)]
+    public string storyText;
 
-    [RuntimeInitializeOnLoadMethod]
-    static void LoadCheckpointOnStartup()
+    [Header("Egyedi Beállítások")]
+    public bool showAtGameStart = false;
+
+    private bool isActivated = false;
+
+    private void Start()
     {
-        if (PlayerPrefs.HasKey("CheckpointX"))
+        if (bubbleTextDisplay != null)
         {
-            savedPoisiton = new Vector2(
-                PlayerPrefs.GetFloat("CheckpointX"),
-                PlayerPrefs.GetFloat("CheckpointY")
-            );
+            bubbleTextDisplay.text = storyText;
+        }
+
+        if (speechBubble != null)
+        {
+            speechBubble.SetActive(showAtGameStart);
         }
     }
 
@@ -20,16 +32,70 @@ public class Checkpoint : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            savedPoisiton = collision.transform.position;
+            if (speechBubble != null && !string.IsNullOrEmpty(storyText))
+            {
+                speechBubble.SetActive(true);
+            }
 
-            PlayerPrefs.SetFloat("CheckpointX", savedPoisiton.x);
-            PlayerPrefs.SetFloat("CheckpointY", savedPoisiton.y);
+            if (!isActivated)
+            {
+                isActivated = true;
 
-            int currentScore = GameManager.Instance.score;
-            PlayerPrefs.SetInt("CheckpointScore", currentScore);
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySound("Checkpoint");
+                }
 
+                string currentScene = SceneManager.GetActiveScene().name;
 
-            PlayerPrefs.Save(); 
+                PlayerPrefs.SetFloat("CheckpointX_" + currentScene, collision.transform.position.x);
+                PlayerPrefs.SetFloat("CheckpointY_" + currentScene, collision.transform.position.y);
+
+                PlayerPrefs.SetInt("CheckpointScore_" + currentScene, GameManager.Instance.score);
+                PlayerPrefs.Save();
+
+                if (PersistenceManager.Instance != null)
+                {
+                    PersistenceManager.Instance.CommitCurrentRun();
+                }
+
+                Debug.Log($"Mentés sikeres ezen a pályán: {currentScene}");
+            }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && !showAtGameStart)
+        {
+            if (speechBubble != null)
+            {
+                speechBubble.SetActive(false);
+            }
+        }
+    }
+
+    public static Vector2 GetSavedPositionForCurrentScene()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (PlayerPrefs.HasKey("CheckpointX_" + currentScene))
+        {
+            return new Vector2(
+                PlayerPrefs.GetFloat("CheckpointX_" + currentScene),
+                PlayerPrefs.GetFloat("CheckpointY_" + currentScene)
+            );
+        }
+
+        return Vector2.zero;
+    }
+
+    public static void ResetCheckpoint()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        PlayerPrefs.DeleteKey("CheckpointX_" + currentScene);
+        PlayerPrefs.DeleteKey("CheckpointY_" + currentScene);
+        PlayerPrefs.DeleteKey("CheckpointScore_" + currentScene);
+        PlayerPrefs.Save();
     }
 }

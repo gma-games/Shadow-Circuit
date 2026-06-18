@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8340064454103695637}
   - component: {fileID: 3133175894561961451}
   - component: {fileID: 3165258598889669549}
+  - component: {fileID: 2928956682008355555}
   - component: {fileID: 7798295160911146183}
   m_Layer: 0
   m_Name: Keycard
@@ -153,6 +154,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: MainGame::Keycard
   door: {fileID: 0}
+--- !u!114 &2928956682008355555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276068948078515665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0223732b2cb81ea438f67ba495bbd0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainGame::SaveableObject
+  tipus: 0
+  uniqueId: a167f0af-fe97-4449-8a61-b0a5fce2b29f
 --- !u!95 &7798295160911146183
 Animator:
   serializedVersion: 7

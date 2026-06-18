@@ -57,9 +57,16 @@ public class Player : MonoBehaviour
 
         extraJumps = extraJumpsValue;
 
-        if (Checkpoint.savedPoisiton != Vector2.zero)
-            {
-            transform.position = Checkpoint.savedPoisiton;
+      
+        Vector2 savedPos = Checkpoint.GetSavedPositionForCurrentScene();
+        if (savedPos != Vector2.zero)
+        {
+            transform.position = savedPos;
+        }
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound("Spawn");
         }
     }
 
@@ -74,13 +81,14 @@ public class Player : MonoBehaviour
             {
                 spriteRenderer.flipX = false;
             }
-            else            
+            else
             {
                 spriteRenderer.flipX = true;
             }
         }
 
-        if (isGrounded) { 
+        if (isGrounded)
+        {
             coyoteTimeCounter = coyoteTime;
             extraJumps = extraJumpsValue;
         }
@@ -93,27 +101,22 @@ public class Player : MonoBehaviour
         {
             jumpBufferCounter = jumpBufferTime;
         }
-        else 
+        else
         {
             jumpBufferCounter -= Time.deltaTime;
         }
 
         if (jumpBufferCounter > 0f)
         {
-
             if (isWallSliding)
             {
                 float direction = spriteRenderer.flipX ? 1 : -1;
-
                 rb.linearVelocity = new Vector2(direction * 8f, jumpForce);
-
                 spriteRenderer.flipX = !spriteRenderer.flipX;
                 PlaySFX(jumpClip);
             }
-
-            if (coyoteTimeCounter > 0f)
+            else if (coyoteTimeCounter > 0f)
             {
-
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 PlaySFX(jumpClip);
                 coyoteTimeCounter = 0f;
@@ -125,7 +128,6 @@ public class Player : MonoBehaviour
                 PlaySFX(jumpClip);
                 extraJumps--;
                 jumpBufferCounter = 0f;
-
             }
         }
 
@@ -134,16 +136,16 @@ public class Player : MonoBehaviour
             rb.AddForceY(jumpContinuesForce);
         }
 
-
-
         SetAnimationStates(moveInput);
 
-        healthImage.fillAmount = health / 100f;
+        if (healthImage != null)
+        {
+            healthImage.fillAmount = health / 100f;
+        }
 
-        if(rb.linearVelocityY < 0)
+        if (rb.linearVelocityY < 0)
         {
             rb.gravityScale = 3f;
-
         }
         else
         {
@@ -162,7 +164,6 @@ public class Player : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         isTouchingWall = Physics2D.Raycast(transform.position, spriteRenderer.flipX ? Vector2.left : Vector2.right, wallCheckDistance, groundLayer);
-    
     }
 
     private void SetAnimationStates(float moveInput)
@@ -177,7 +178,6 @@ public class Player : MonoBehaviour
             {
                 animator.Play("Player_Run");
             }
-
         }
         else
         {
@@ -188,19 +188,16 @@ public class Player : MonoBehaviour
 
             if (rb.linearVelocityY > 0)
             {
-
                 animator.Play("Player_jump");
-
             }
             else
             {
                 animator.Play("Player_Fall");
             }
         }
-     
     }
 
-   private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Damage"))
         {
@@ -212,9 +209,8 @@ public class Player : MonoBehaviour
 
             PlaySFX(hurtClip);
             health -= 25;
-           
-            StartCoroutine(BlinkRed());
 
+            StartCoroutine(BlinkRed());
             StartCoroutine(InvincibilityFrames());
 
             if (health <= 0)
@@ -229,13 +225,11 @@ public class Player : MonoBehaviour
         spriteRenderer.color = new Color(Color.red.r, Color.red.g, Color.red.b, spriteRenderer.color.a);
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = new Color(Color.white.r, Color.white.g, Color.white.b, spriteRenderer.color.a);
-       
     }
 
     private void Die()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-       
     }
 
     public void PlaySFX(AudioClip audioClip, float volume = 1f)
@@ -275,5 +269,5 @@ public class Player : MonoBehaviour
         }
     }
 
-
+   
 }

@@ -63,6 +63,6 @@ public class PuzzleElement : MonoBehaviour
         }
 
       
-        // AudioManager.Instance.PlaySound("PuzzleSolved");
+         AudioManager.Instance.PlaySound("DoorOpened");
     }
 }

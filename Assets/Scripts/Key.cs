@@ -10,10 +10,19 @@ public class Key : MonoBehaviour
             // +1 hozzáadása
             GameManager.Instance.AddScore(1);
 
-            AudioManager.Instance.PlaySound("Coin");
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySound("Key");
+            }
+
+            SaveableObject saveable = GetComponent<SaveableObject>();
+            if (saveable != null)
+            {
+                saveable.RegisterPickup();
+            }
 
             // Objektum törlése
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

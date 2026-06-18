@@ -10,6 +10,11 @@ public class FallingPlatform : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySound("PlatformFall");
+            }
             gameObject.AddComponent<Rigidbody2D>();
             Destroy(transform.parent.gameObject, 3);
         }

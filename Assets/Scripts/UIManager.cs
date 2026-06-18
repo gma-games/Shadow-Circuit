@@ -7,14 +7,16 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
 
     [Header("HUD Elements")]
-    public TextMeshProUGUI scoreText; // A régi "coinText" megfelelője
-    public Image healthBar;           // A régi "healthImage" megfelelője
+    public TextMeshProUGUI scoreText;
+    public Image healthBar;
     public UnityEngine.UI.Image healthBarFill;
 
+    public Image keycardIcon;
+
     [Header("Menus & Screens")]
-    public GameObject pauseMenu;      // A régi "container" a PauseMenu.cs-ből
+    public GameObject pauseMenu;
     public GameObject gameOverScreen;
-    public GameObject winScreen;     
+    public GameObject winScreen;
 
     private void Awake()
     {
@@ -37,6 +39,9 @@ public class UIManager : MonoBehaviour
 
         // Alapértékek beállítása
         UpdateScoreDisplay(0);
+
+        // Induláskor halványítjuk a Keycard ikont
+        SetKeycardUI(false);
     }
 
     //  KÉPERNYŐ FRISSÍTŐ METÓDUSOK 
@@ -55,6 +60,21 @@ public class UIManager : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.fillAmount = healthPercentage;
+        }
+    }
+
+    public void SetKeycardUI(bool hasKeycard)
+    {
+        if (keycardIcon != null)
+        {
+            // Lekérjük az ikon jelenlegi színét
+            Color iconColor = keycardIcon.color;
+
+            // Ha megvan a kártya, az Alpha (átlátszóság) 1f (100%), ha nincs, akkor 0.3f (30% halvány)
+            iconColor.a = hasKeycard ? 1f : 0.3f;
+
+            // Visszaadjuk az új színt az ikonnak
+            keycardIcon.color = iconColor;
         }
     }
 
@@ -82,7 +102,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    //  GOMBOKHOZ RENDELHETŐ FUNKCIÓK
 
     public void ResumeButton()
     {
@@ -92,6 +111,6 @@ public class UIManager : MonoBehaviour
     public void MainMenuButton()
     {
         Time.timeScale = 1;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu"); 
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
     }
 }

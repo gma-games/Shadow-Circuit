@@ -15,10 +15,12 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Sources")]
     public AudioSource musicSource;
+    public AudioSource backgroundSource;
     public AudioSource sfxSource;
 
     [Header("Audio Clips")]
     public AudioClip music;
+    public AudioClip background;
     public Sound[] sfxList;
 
   
@@ -57,14 +59,20 @@ public class AudioManager : MonoBehaviour
         if (music != null)
         {
             PlayMusic();
+           
+        }
+
+        if (background != null)
+        {
+            PlayBackgroundNoise();
         }
     }
 
-    public void PlaySound(string soundName)
+    public void PlaySound(string soundName, float volume = 1f)
     {
         if (soundEffects.ContainsKey(soundName))
         {
-            sfxSource.PlayOneShot(soundEffects[soundName]);
+            sfxSource.PlayOneShot(soundEffects[soundName], volume);
         }
         else
         {
@@ -85,8 +93,20 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+    public void PlayBackgroundNoise()
+    {
+        backgroundSource.clip = background;
+        backgroundSource.loop = true;
+        backgroundSource.Play();
+    }
+
     public void StopMusic()
     {
         musicSource.Stop();
+    }
+
+    public void StopBackgroundNoise()
+    {
+        backgroundSource.Stop();
     }
 }

@@ -30,6 +30,8 @@ public class MovingPlatform : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, waypoints[currentPointIndex].position) < 0.01f)
         {
+
+           
             currentPointIndex++;
             if (currentPointIndex >= waypoints.Count)
             {

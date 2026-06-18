@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,12 +9,11 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
 
     [Header("Sebződés után")]
-    public float knockbackForceUp = 8.5f; // Sebződés után felfelé ugrik
-    public float knockbackForceHorizontal = 5f; //Oldal irányú ellökés
-    public float iFrameDuration = 1f;   // Sebezhetetlenség ideje
+    public float knockbackForceUp = 8.5f;
+    public float knockbackForceHorizontal = 5f;
+    public float iFrameDuration = 1f;
     private bool isInvincible;
 
-    // Komponens referenciák
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private Vector2 startPosition;
@@ -28,8 +28,10 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        // Induláskor max életerő
-        UIManager.Instance.UpdateHealthDisplay((float)currentHealth / maxHealth);
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.UpdateHealthDisplay((float)currentHealth / maxHealth);
+        }
 
         playerLayer = LayerMask.NameToLayer("Player");
         enemyLayer = LayerMask.NameToLayer("Enemy");
@@ -38,7 +40,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        // Pályáról kizuhanás
         if (transform.position.y < -10)
         {
             Die();
@@ -49,22 +50,22 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Damage"))
         {
-            // Kiszámoljuk, hogy a Damage taggel rendelkező objemktum tőlünk jobbra vagy balra va
             int pushDirection = transform.position.x < collision.transform.position.x ? -1 : 1;
-            
             TakeDamage(25, pushDirection);
         }
     }
 
     public void TakeDamage(int damageAmount, int pushDirection = 0)
     {
-        if (isInvincible) return; // Ha éppen az adott státuszban van akkor nem sebződik 
+        if (isInvincible) return;
 
         currentHealth -= damageAmount;
-        UIManager.Instance.UpdateHealthDisplay((float)currentHealth / maxHealth);
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.UpdateHealthDisplay((float)currentHealth / maxHealth);
+        }
         AudioManager.Instance.PlaySound("Hurt");
 
-        // Visszalökődés 
         if (rb != null)
         {
             rb.linearVelocity = new Vector2(pushDirection * knockbackForceHorizontal, knockbackForceUp);
@@ -91,7 +92,6 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
-
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
 
         float elapsed = 0f;
@@ -105,39 +105,60 @@ public class PlayerHealth : MonoBehaviour
         }
 
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1);
-
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
-
         isInvincible = false;
     }
 
     private void Die()
     {
-        // a game managerrel pálya újratöltése
-        GameManager.Instance.PlayerDied(this);
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound("Death");
+        }
+        if (PersistenceManager.Instance != null)
+        {
+            PersistenceManager.Instance.ResetCurrentRun();
+        }
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.PlayerDied(this);
+        }
     }
 
     public void Respawn()
     {
-        // Életerő visszaállítása
-        currentHealth = maxHealth;
-        UIManager.Instance.UpdateHealthDisplay(1f);
-
-        // Legutolsó elmentett helyre teleportálsá
-        if (Checkpoint.savedPoisiton != Vector2.zero)
+        if (AudioManager.Instance != null)
         {
-            transform.position = Checkpoint.savedPoisiton;
+            AudioManager.Instance.PlaySound("Respawn");
+        }
+        currentHealth = maxHealth;
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.UpdateHealthDisplay(1f);
+        }
+
+        Vector2 savedPos = Checkpoint.GetSavedPositionForCurrentScene();
+        if (savedPos != Vector2.zero)
+        {
+            transform.position = savedPos;
         }
         else
         {
             transform.position = startPosition;
         }
 
-        //A checkpointnál elmenmtett pontszáom töltődnek vissza
+        string currentScene = SceneManager.GetActiveScene().name;
+        int savedScore = PlayerPrefs.GetInt("CheckpointScore_" + currentScene, 0);
 
-        int savedScore = PlayerPrefs.GetInt("CheckpointScore", 0);
-        GameManager.Instance.score = savedScore;
-        UIManager.Instance.UpdateScoreDisplay(savedScore);
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.score = savedScore;
+            if (UIManager.Instance != null)
+            {
+                UIManager.Instance.UpdateScoreDisplay(savedScore);
+            }
+        }
 
         if (rb != null)
         {

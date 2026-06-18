@@ -74,6 +74,12 @@ public class GameManager : MonoBehaviour
         {
             // Ha elfogyott az összes élet, visszaállítjuk 3-ra a következő játékhoz
             PlayerPrefs.SetInt("PlayerLives", 3);
+
+            Checkpoint.ResetCheckpoint();
+            if (PersistenceManager.Instance != null)
+            {
+                PersistenceManager.Instance.ClearAllSavedData();
+            }
             UIManager.Instance.ShowGameOverScreen();
             Time.timeScale = 0; // Megállítjuk az időt és a fizikát
         }
@@ -119,4 +125,6 @@ public class GameManager : MonoBehaviour
         score += amount;
         UIManager.Instance.UpdateScoreDisplay(score);
     }
+
+    
 }

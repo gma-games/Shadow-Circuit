@@ -47,6 +47,8 @@ public class EnemyController : MonoBehaviour
     {
         bool canSeePlayer = DetectPlayer();
 
+        if (fsm == null) return;
+
         // Ha őrjáratozik, de meglátja a játékost -> Üldözés!
         if (fsm.currentState == EnemyState.Patrol && canSeePlayer)
         {
@@ -55,10 +57,17 @@ public class EnemyController : MonoBehaviour
         // Ha üldözi, de túl messze ment a játékos -> Keresés!
         else if (fsm.currentState == EnemyState.Chase && !canSeePlayer)
         {
-            searchTimer = 2f; // 2 másodpercig fog keresni
+            searchTimer = 2f;
             fsm.ChangeState(EnemyState.Search);
         }
+        // ha keres, de közben meglátja a játékost -> Üldözés vissza!
+        else if (fsm.currentState == EnemyState.Search && canSeePlayer)
+        {
+            fsm.ChangeState(EnemyState.Chase);
+        }
     }
+
+
 
     private void Patrol()
     {

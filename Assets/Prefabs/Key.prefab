@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7459012973429815738}
   - component: {fileID: 4704023259991388161}
   - component: {fileID: 7728234688079723010}
+  - component: {fileID: 8043076376960629664}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -174,3 +175,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6489827e631d247a809b72105b6f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
+--- !u!114 &8043076376960629664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4513177587326584738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0223732b2cb81ea438f67ba495bbd0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainGame::SaveableObject
+  uniqueId: 42888f9f-d5c4-442f-9896-d0d2dc3237f2

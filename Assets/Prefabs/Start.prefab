@@ -9,22 +9,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1538856350025866579, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
-      propertyPath: m_Size.x
-      value: 1.327743
-      objectReference: {fileID: 0}
-    - target: {fileID: 1538856350025866579, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
-      propertyPath: m_Size.y
-      value: 1.5128746
-      objectReference: {fileID: 0}
-    - target: {fileID: 1538856350025866579, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.008677721
-      objectReference: {fileID: 0}
-    - target: {fileID: 1538856350025866579, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.0094977915
-      objectReference: {fileID: 0}
-    - target: {fileID: 1538856350025866579, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.5
       objectReference: {fileID: 0}
@@ -32,10 +16,26 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3558775092898338566, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558775092898338566, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558775092898338566, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
+      propertyPath: m_TextWrappingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5789422897100964073, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2306805820220675256, guid: 35b64a3340484314882b379950522ed9, type: 3}
+    - target: {fileID: 7397146330560841040, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
+      propertyPath: showAtGameStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7439621597686169236, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7733615526126911705, guid: 14a18dac966302f4091001a51e0b7170, type: 3}
       propertyPath: m_Name
-      value: Checkpoint Variant
+      value: Start
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

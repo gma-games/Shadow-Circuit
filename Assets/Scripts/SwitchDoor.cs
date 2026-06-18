@@ -20,14 +20,24 @@ public class SwitchDoor : MonoBehaviour
     {
         isOpen = true;
         spriteRenderer.enabled = false; 
-        doorCollider.enabled = false;   
+        doorCollider.enabled = false;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound("DoorOpened");
+        }
     }
 
     public void Close()
     {
         isOpen = false;
         spriteRenderer.enabled = true;  
-        doorCollider.enabled = true;    
+        doorCollider.enabled = true;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound("DoorOpened");
+        }
     }
 
     public void Toggle()

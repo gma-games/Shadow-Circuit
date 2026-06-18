@@ -19,12 +19,17 @@ public class PlayerController : MonoBehaviour
     public float jumpBufferTime = 0.15f;
     public int extraJumpsValue = 1;
 
+    [Header("Fizika korlátok")]
+    public float maxFallSpeed = -20f;
+
     private bool isSneaking;
 
     // Privát változók a fizikához és állapotokhoz
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+
+    private bool isRunningSoundPlaying = false;
 
     private bool isGrounded;
     private bool isTouchingWall;
@@ -42,9 +47,11 @@ public class PlayerController : MonoBehaviour
 
         extraJumps = extraJumpsValue;
 
-        if (Checkpoint.savedPoisiton != Vector2.zero)
+        Vector2 savedPos = Checkpoint.GetSavedPositionForCurrentScene();
+
+        if (savedPos != Vector2.zero)
         {
-            transform.position = Checkpoint.savedPoisiton;
+            transform.position = savedPos;
         }
     }
 
@@ -52,13 +59,36 @@ public class PlayerController : MonoBehaviour
     {
         HandleInput();
         UpdateAnimations();
+        HandleRunningSound();
+    }
+
+    private void HandleRunningSound()
+    {
+        // Ha mozog, földön van, és nem csúszik falon
+        bool isMoving = Mathf.Abs(rb.linearVelocityX) > 0.1f && isGrounded && !isWallSliding;
+
+        if (isMoving && !isRunningSoundPlaying)
+        {
+            if (AudioManager.Instance != null) AudioManager.Instance.PlaySound("Run", 0.4f);
+            isRunningSoundPlaying = true;
+        }
+        else if (!isMoving && isRunningSoundPlaying)
+        {
+            if (AudioManager.Instance != null) AudioManager.Instance.StopSound("Run");
+            isRunningSoundPlaying = false;
+        }
     }
 
     private void FixedUpdate()
     {
-        //Fizikai ellenőrzések a FixedUpdate-ben a legstabilabbak
+        // Fizikai ellenőrzések a FixedUpdate-ben a legstabilabbak
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         isTouchingWall = Physics2D.Raycast(transform.position, spriteRenderer.flipX ? Vector2.left : Vector2.right, wallCheckDistance, groundLayer);
+
+        if (rb.linearVelocity.y < maxFallSpeed)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, maxFallSpeed);
+        }
     }
 
     public void HandleInput()
@@ -118,6 +148,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+   
     public void Jump()
     {
         if (isWallSliding)
