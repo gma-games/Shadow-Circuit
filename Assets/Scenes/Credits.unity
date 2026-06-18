@@ -466,7 +466,7 @@ MonoBehaviour:
   textToScroll: {fileID: 1961022780}
   scrollSpeed: 50
   stopPositionY: 2000
-  mainMenuSceneName: MainMenu
+  mainMenuSceneName: Main Menu
 --- !u!4 &1346179426
 Transform:
   m_ObjectHideFlags: 0
@@ -766,16 +766,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Rendszer fel\xFCl\xEDrva!\n\nVesz\xE9ly elh\xE1r\xEDtva!\n\nA g\xE9pek
-    le\xE1lltak, a z\xE1rak kiny\xEDltak!\n\nA kutat\xF3laborat\xF3rium v\xE9gleg
-    elcsendesedett...\n\nA n\xE1lad l\xE9v\u0151 titkos pendrive-ok m\xE1r biztons\xE1gban
-    vannak. A labor s\xF6t\xE9t titkai v\xE9gre napvil\xE1gra ker\xFClhetnek.\n\nKil\xE9psz
-    a napf\xE9nyre, a biztons\xE1gos csendbe, v\xE9gleg h\xE1trahagyva a f\xE9mek
-    \xE9s a riaszt\xF3k \xE1tkozott zaj\xE1t.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nK\xE9sz\xEDtette:
-    \n\nMakai Marcell\nG\xF6r\xF6zdi Attila\n\xC1der Gergely P\xE9ter\n"
+  m_text: "System override complete!\n\n\nThreat neutralized!\n\n\nThe machines have
+    shut down, and the locks have opened!\n\n\nThe research laboratory has finally
+    fallen silent...\n\n\nThe secret flash drives in your possession are now safe.
+    The laboratory\u2019s dark secrets can finally be brought to light.\n\n\nYou
+    step out into the sunlight, into a peaceful silence, leaving behind forever the
+    cursed noise of metal and alarms.\n\n\n\n\n\n\n\n\n\nCreated by:\nMakai Marcell\nG\xF6r\xF6zdi
+    Attila\n\xC1der Gergely P\xE9ter\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 460f432e31b802b4d84aa755d4396c9d, type: 2}
+  m_sharedMaterial: {fileID: -2313822415509761413, guid: 460f432e31b802b4d84aa755d4396c9d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

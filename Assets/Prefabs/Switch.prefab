@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -8.23, y: 6.17}
-  m_SizeDelta: {x: 1468, y: 653}
+  m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6428286334323486731
 Canvas:
@@ -261,7 +261,9 @@ MonoBehaviour:
   isActive: 0
   speechBubble: {fileID: 1046696858050084268}
   bubbleTextDisplay: {fileID: 7003710718636531212}
-  interactText: "Az 'E' gombbal haszn\xE1lhat\xF3"
+  interactText: 'Press ''E''
+
+'
 --- !u!114 &5418359102065907217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,8 +345,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 460f432e31b802b4d84aa755d4396c9d, type: 2}
+  m_sharedMaterial: {fileID: -2313822415509761413, guid: 460f432e31b802b4d84aa755d4396c9d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -448,7 +450,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1468, y: 653}
+  m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8861619219562081397
 CanvasRenderer:
