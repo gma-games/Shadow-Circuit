@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['sound_0',['Sound',['../class_sound.html',1,'']]],
-  ['switch_1',['Switch',['../class_switch.html',1,'']]],
-  ['switchdoor_2',['SwitchDoor',['../class_switch_door.html',1,'']]]
+  ['objectspin_0',['ObjectSpin',['../class_t_m_pro_1_1_examples_1_1_object_spin.html',1,'TMPro::Examples']]]
 ];

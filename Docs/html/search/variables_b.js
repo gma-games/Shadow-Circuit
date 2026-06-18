@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['objectstotrigger_0',['objectsToTrigger',['../class_puzzle_element.html#a6b8dd1c3c6dc85764710f00421601688',1,'PuzzleElement']]],
-  ['offduration_1',['offDuration',['../class_toggle_platform.html#a23843cea5619f6290edec4cc8b24f593',1,'TogglePlatform']]],
-  ['offsprite_2',['offSprite',['../class_toggle_platform.html#a0e2d53af4b1f4ff4e0a8808341302c96',1,'TogglePlatform']]],
-  ['onduration_3',['onDuration',['../class_toggle_platform.html#a14ffdc3ff569a10719ae96ba20f19f81',1,'TogglePlatform']]],
-  ['onsprite_4',['onSprite',['../class_toggle_platform.html#a4a3096bdd07f49c8da3530a29cf1b7a7',1,'TogglePlatform']]]
+  ['level_0',['level',['../class_level_button.html#ab923048bbb529d1932fc27c3306a1550',1,'LevelButton']]],
+  ['levelselect_1',['levelSelect',['../class_main_menu.html#ae68b180951bc072def8eda4554fda5fb',1,'MainMenu']]],
+  ['linkedobjects_2',['linkedObjects',['../class_switch.html#a2067ea7dba5e238a8f3fa3c788909973',1,'Switch']]],
+  ['linktext_3',['linkText',['../class_readme_b_e2_1_1_section.html#a9cc198a53e31181981893bda4a71cc62',1,'ReadmeBE2::Section']]],
+  ['loadedlayout_4',['loadedLayout',['../class_readme_b_e2.html#ae8c582d93b8a79f13984f2c7d78544d4',1,'ReadmeBE2']]],
+  ['losedistance_5',['loseDistance',['../class_enemy.html#ad61e47a2f94f3c0ea30cbc50ba49948d',1,'Enemy.loseDistance'],['../class_enemy_controller.html#aa33b7ac1f78b7cbfd87e75ed1118361e',1,'EnemyController.loseDistance']]]
 ];

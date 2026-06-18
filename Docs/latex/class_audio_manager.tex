@@ -9,22 +9,30 @@ Inheritance diagram for Audio\+Manager:\+\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \doxymbox{\hyperlink{class_audio_manager_a6475a4b2c829237f005a70dc068955cd}{Play\+Sound}} (string sound\+Name)
+void \doxymbox{\hyperlink{class_audio_manager_a56d0cdf3fd8e1e1ba6c6566f1570fc95}{Play\+Sound}} (string sound\+Name, float volume=1f)
 \item 
 void \doxymbox{\hyperlink{class_audio_manager_ac17391999de66440e9f9d7835c1f4e0d}{Stop\+Sound}} (string sound\+Name)
 \item 
 void \doxymbox{\hyperlink{class_audio_manager_a36917da375b4841228f6ca8a944a72a0}{Play\+Music}} ()
 \item 
+void \doxymbox{\hyperlink{class_audio_manager_af2ee8a5446ebbd49d8217f0fd567aa46}{Play\+Background\+Noise}} ()
+\item 
 void \doxymbox{\hyperlink{class_audio_manager_aa3da61250948e1881a7c3993cf9e5af3}{Stop\+Music}} ()
+\item 
+void \doxymbox{\hyperlink{class_audio_manager_abe8a0ee1302d5ce0a73f863b13b97457}{Stop\+Background\+Noise}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Audio\+Source \doxymbox{\hyperlink{class_audio_manager_a54db9f2d0d9838c238a56cc82b222773}{music\+Source}}
 \item 
+Audio\+Source \doxymbox{\hyperlink{class_audio_manager_ab7a8c9c5cf31d30f2a0ef4c12df2d5bf}{background\+Source}}
+\item 
 Audio\+Source \doxymbox{\hyperlink{class_audio_manager_af20e9441762e9b8086842802fd93fd69}{sfx\+Source}}
 \item 
 Audio\+Clip \doxymbox{\hyperlink{class_audio_manager_ac4b933f79ddc56f1124d4e122135059e}{music}}
+\item 
+Audio\+Clip \doxymbox{\hyperlink{class_audio_manager_aa549e8b9bd0e7c8c09a583a2fe6caa8b}{background}}
 \item 
 \doxymbox{\hyperlink{class_sound}{Sound}}\+[$\,$]\+ \doxymbox{\hyperlink{class_audio_manager_a6b50c23015f675056d23e3884faaf833}{sfx\+List}}
 \end{DoxyCompactItemize}
@@ -35,45 +43,38 @@ static \doxymbox{\hyperlink{class_audio_manager}{Audio\+Manager}} \doxymbox{\hyp
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
-
-
-Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00012}{12}} of file \doxymbox{\hyperlink{_audio_manager_8cs_source}{Audio\+Manager.\+cs}}.
-
-
-
 \label{class_audio_manager_doc-func-members}
 \Hypertarget{class_audio_manager_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_audio_manager_af2ee8a5446ebbd49d8217f0fd567aa46}\index{AudioManager@{AudioManager}!PlayBackgroundNoise@{PlayBackgroundNoise}}
+\index{PlayBackgroundNoise@{PlayBackgroundNoise}!AudioManager@{AudioManager}}
+\doxysubsubsection{\texorpdfstring{PlayBackgroundNoise()}{PlayBackgroundNoise()}}
+{\footnotesize\ttfamily \label{class_audio_manager_af2ee8a5446ebbd49d8217f0fd567aa46} 
+void Audio\+Manager.\+Play\+Background\+Noise (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
 \Hypertarget{class_audio_manager_a36917da375b4841228f6ca8a944a72a0}\index{AudioManager@{AudioManager}!PlayMusic@{PlayMusic}}
 \index{PlayMusic@{PlayMusic}!AudioManager@{AudioManager}}
 \doxysubsubsection{\texorpdfstring{PlayMusic()}{PlayMusic()}}
 {\footnotesize\ttfamily \label{class_audio_manager_a36917da375b4841228f6ca8a944a72a0} 
 void Audio\+Manager.\+Play\+Music (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-
-
-Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00081}{81}} of file \doxymbox{\hyperlink{_audio_manager_8cs_source}{Audio\+Manager.\+cs}}.
-
-\Hypertarget{class_audio_manager_a6475a4b2c829237f005a70dc068955cd}\index{AudioManager@{AudioManager}!PlaySound@{PlaySound}}
+\Hypertarget{class_audio_manager_a56d0cdf3fd8e1e1ba6c6566f1570fc95}\index{AudioManager@{AudioManager}!PlaySound@{PlaySound}}
 \index{PlaySound@{PlaySound}!AudioManager@{AudioManager}}
 \doxysubsubsection{\texorpdfstring{PlaySound()}{PlaySound()}}
-{\footnotesize\ttfamily \label{class_audio_manager_a6475a4b2c829237f005a70dc068955cd} 
-void Audio\+Manager.\+Play\+Sound (\begin{DoxyParamCaption}\item[{string}]{sound\+Name}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_audio_manager_a56d0cdf3fd8e1e1ba6c6566f1570fc95} 
+void Audio\+Manager.\+Play\+Sound (\begin{DoxyParamCaption}\item[{string}]{sound\+Name}{, }\item[{float}]{volume}{ = {\ttfamily 1f}}\end{DoxyParamCaption})}
 
-
-
-Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00063}{63}} of file \doxymbox{\hyperlink{_audio_manager_8cs_source}{Audio\+Manager.\+cs}}.
+\Hypertarget{class_audio_manager_abe8a0ee1302d5ce0a73f863b13b97457}\index{AudioManager@{AudioManager}!StopBackgroundNoise@{StopBackgroundNoise}}
+\index{StopBackgroundNoise@{StopBackgroundNoise}!AudioManager@{AudioManager}}
+\doxysubsubsection{\texorpdfstring{StopBackgroundNoise()}{StopBackgroundNoise()}}
+{\footnotesize\ttfamily \label{class_audio_manager_abe8a0ee1302d5ce0a73f863b13b97457} 
+void Audio\+Manager.\+Stop\+Background\+Noise (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 \Hypertarget{class_audio_manager_aa3da61250948e1881a7c3993cf9e5af3}\index{AudioManager@{AudioManager}!StopMusic@{StopMusic}}
 \index{StopMusic@{StopMusic}!AudioManager@{AudioManager}}
 \doxysubsubsection{\texorpdfstring{StopMusic()}{StopMusic()}}
 {\footnotesize\ttfamily \label{class_audio_manager_aa3da61250948e1881a7c3993cf9e5af3} 
 void Audio\+Manager.\+Stop\+Music (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00088}{88}} of file \doxymbox{\hyperlink{_audio_manager_8cs_source}{Audio\+Manager.\+cs}}.
 
 \Hypertarget{class_audio_manager_ac17391999de66440e9f9d7835c1f4e0d}\index{AudioManager@{AudioManager}!StopSound@{StopSound}}
 \index{StopSound@{StopSound}!AudioManager@{AudioManager}}
@@ -83,22 +84,26 @@ void Audio\+Manager.\+Stop\+Sound (\begin{DoxyParamCaption}\item[{string}]{sound
 
 
 
-Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00075}{75}} of file \doxymbox{\hyperlink{_audio_manager_8cs_source}{Audio\+Manager.\+cs}}.
-
-
-
 \label{class_audio_manager_doc-variable-members}
 \Hypertarget{class_audio_manager_doc-variable-members}
 \doxysubsection{Member Data Documentation}
+\Hypertarget{class_audio_manager_aa549e8b9bd0e7c8c09a583a2fe6caa8b}\index{AudioManager@{AudioManager}!background@{background}}
+\index{background@{background}!AudioManager@{AudioManager}}
+\doxysubsubsection{\texorpdfstring{background}{background}}
+{\footnotesize\ttfamily \label{class_audio_manager_aa549e8b9bd0e7c8c09a583a2fe6caa8b} 
+Audio\+Clip Audio\+Manager.\+background}
+
+\Hypertarget{class_audio_manager_ab7a8c9c5cf31d30f2a0ef4c12df2d5bf}\index{AudioManager@{AudioManager}!backgroundSource@{backgroundSource}}
+\index{backgroundSource@{backgroundSource}!AudioManager@{AudioManager}}
+\doxysubsubsection{\texorpdfstring{backgroundSource}{backgroundSource}}
+{\footnotesize\ttfamily \label{class_audio_manager_ab7a8c9c5cf31d30f2a0ef4c12df2d5bf} 
+Audio\+Source Audio\+Manager.\+background\+Source}
+
 \Hypertarget{class_audio_manager_ac4b933f79ddc56f1124d4e122135059e}\index{AudioManager@{AudioManager}!music@{music}}
 \index{music@{music}!AudioManager@{AudioManager}}
 \doxysubsubsection{\texorpdfstring{music}{music}}
 {\footnotesize\ttfamily \label{class_audio_manager_ac4b933f79ddc56f1124d4e122135059e} 
 Audio\+Clip Audio\+Manager.\+music}
-
-
-
-Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00021}{21}} of file \doxymbox{\hyperlink{_audio_manager_8cs_source}{Audio\+Manager.\+cs}}.
 
 \Hypertarget{class_audio_manager_a54db9f2d0d9838c238a56cc82b222773}\index{AudioManager@{AudioManager}!musicSource@{musicSource}}
 \index{musicSource@{musicSource}!AudioManager@{AudioManager}}
@@ -106,29 +111,17 @@ Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00021}{21}} o
 {\footnotesize\ttfamily \label{class_audio_manager_a54db9f2d0d9838c238a56cc82b222773} 
 Audio\+Source Audio\+Manager.\+music\+Source}
 
-
-
-Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00017}{17}} of file \doxymbox{\hyperlink{_audio_manager_8cs_source}{Audio\+Manager.\+cs}}.
-
 \Hypertarget{class_audio_manager_a6b50c23015f675056d23e3884faaf833}\index{AudioManager@{AudioManager}!sfxList@{sfxList}}
 \index{sfxList@{sfxList}!AudioManager@{AudioManager}}
 \doxysubsubsection{\texorpdfstring{sfxList}{sfxList}}
 {\footnotesize\ttfamily \label{class_audio_manager_a6b50c23015f675056d23e3884faaf833} 
 \doxymbox{\hyperlink{class_sound}{Sound}} \+[$\,$]\+ Audio\+Manager.\+sfx\+List}
 
-
-
-Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00022}{22}} of file \doxymbox{\hyperlink{_audio_manager_8cs_source}{Audio\+Manager.\+cs}}.
-
 \Hypertarget{class_audio_manager_af20e9441762e9b8086842802fd93fd69}\index{AudioManager@{AudioManager}!sfxSource@{sfxSource}}
 \index{sfxSource@{sfxSource}!AudioManager@{AudioManager}}
 \doxysubsubsection{\texorpdfstring{sfxSource}{sfxSource}}
 {\footnotesize\ttfamily \label{class_audio_manager_af20e9441762e9b8086842802fd93fd69} 
 Audio\+Source Audio\+Manager.\+sfx\+Source}
-
-
-
-Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00018}{18}} of file \doxymbox{\hyperlink{_audio_manager_8cs_source}{Audio\+Manager.\+cs}}.
 
 
 
@@ -140,10 +133,6 @@ Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00018}{18}} o
 \doxysubsubsection{\texorpdfstring{Instance}{Instance}}
 {\footnotesize\ttfamily \label{class_audio_manager_af96f8bc4f9a0ad3f1a63a028bb31f790} 
 \doxymbox{\hyperlink{class_audio_manager}{Audio\+Manager}} Audio\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
-
-
-
-Definition at line \doxymbox{\hyperlink{_audio_manager_8cs_source_l00014}{14}} of file \doxymbox{\hyperlink{_audio_manager_8cs_source}{Audio\+Manager.\+cs}}.
 
 
 

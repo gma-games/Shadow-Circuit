@@ -1,4 +1,19 @@
 var searchData=
 [
-  ['extrajumpsvalue_0',['extraJumpsValue',['../class_player.html#a99d2f6123e2b08be369394ddb341dfa8',1,'Player.extraJumpsValue'],['../class_player_controller.html#ad31c28912a1712764bb66bce97dc344c',1,'PlayerController.extraJumpsValue']]]
+  ['cameramode_0',['CameraMode',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html#a27513135088672400a14f64275a45190',1,'TMPro::Examples::CameraController']]],
+  ['cameratarget_1',['CameraTarget',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html#a185480dc2cf1a5f480549dfebc0ee8e7',1,'TMPro::Examples::CameraController']]],
+  ['cancharge_2',['canCharge',['../class_enemy.html#a3d422f2dd5328a94d3caf6e25de6f7e1',1,'Enemy']]],
+  ['canvas_3',['canvas',['../class_t_m_pro_1_1_examples_1_1_benchmark01___u_g_u_i.html#a02cfe9754494cce88d818ab75c1da2d9',1,'TMPro::Examples::Benchmark01_UGUI']]],
+  ['chargespeed_4',['chargeSpeed',['../class_enemy.html#aa04ba9516542feb2c8a8f2f10a64a664',1,'Enemy.chargeSpeed'],['../class_enemy_controller.html#aaa24566a2aa16aed9695f5a19e0a197e',1,'EnemyController.chargeSpeed']]],
+  ['chatdisplayoutput_5',['ChatDisplayOutput',['../class_chat_controller.html#a8878195f15891c5c291673c5117010b6',1,'ChatController']]],
+  ['chatinputfield_6',['ChatInputField',['../class_chat_controller.html#a79979151cb7bb96b48ec5ab977facaf5',1,'ChatController']]],
+  ['chatscrollbar_7',['ChatScrollbar',['../class_chat_controller.html#a76cac89a1da8d005d5da2e3a2a93de57',1,'ChatController']]],
+  ['clip_8',['clip',['../class_sound.html#ab7878c271c13d5e8fbdf25714e363b77',1,'Sound']]],
+  ['container_9',['container',['../class_pause_menu.html#a43980f3d7d11280437a98112bd33dc59',1,'PauseMenu']]],
+  ['coyotetime_10',['coyoteTime',['../class_player.html#a0ff7b63b9c4164c6c15072e3e6ee1575',1,'Player.coyoteTime'],['../class_player_controller.html#aca1a0620fb13324611f4faffe8a89948',1,'PlayerController.coyoteTime']]],
+  ['creditsscenename_11',['creditsSceneName',['../class_finish.html#a17ded74096a1558ea12b84f0930b0619',1,'Finish']]],
+  ['currenthealth_12',['currentHealth',['../class_player_health.html#ac824ef20d43c0489bae436f3b25c1683',1,'PlayerHealth']]],
+  ['currentlevel_13',['currentLevel',['../class_game_manager.html#acbca69d1b495367308b355c8990f8958',1,'GameManager']]],
+  ['currentstate_14',['currentState',['../class_finite_state_machine.html#ab2261637dbb853480f961c97f27a552b',1,'FiniteStateMachine']]],
+  ['curvescale_15',['CurveScale',['../class_t_m_pro_1_1_examples_1_1_skew_text_example.html#a99a24dc0d0b4c3c9ae46c925a57031f1',1,'TMPro.Examples.SkewTextExample.CurveScale'],['../class_t_m_pro_1_1_examples_1_1_vertex_jitter.html#a2950cda059be7e08282d0caee720df49',1,'TMPro.Examples.VertexJitter.CurveScale'],['../class_t_m_pro_1_1_examples_1_1_vertex_shake_b.html#ab3c2718cdb0b13d63b37cc869801ce88',1,'TMPro.Examples.VertexShakeB.CurveScale'],['../class_t_m_pro_1_1_examples_1_1_vertex_zoom.html#aaaaaeb0655b1d974a085b416c2e13522',1,'TMPro.Examples.VertexZoom.CurveScale'],['../class_t_m_pro_1_1_examples_1_1_warp_text_example.html#aa76e772eda39a25ba1d9f033f6fc516c',1,'TMPro.Examples.WarpTextExample.CurveScale']]]
 ];

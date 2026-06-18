@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['enemy_0',['Enemy',['../class_enemy.html',1,'']]],
-  ['enemycontroller_1',['EnemyController',['../class_enemy_controller.html',1,'']]]
+  ['cameracontroller_0',['CameraController',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html',1,'TMPro::Examples']]],
+  ['characterselectionevent_1',['CharacterSelectionEvent',['../class_t_m_pro_1_1_t_m_p___text_event_handler_1_1_character_selection_event.html',1,'TMPro::TMP_TextEventHandler']]],
+  ['chatcontroller_2',['ChatController',['../class_chat_controller.html',1,'']]],
+  ['checkpoint_3',['Checkpoint',['../class_checkpoint.html',1,'']]],
+  ['creditsmanager_4',['CreditsManager',['../class_credits_manager.html',1,'']]]
 ];

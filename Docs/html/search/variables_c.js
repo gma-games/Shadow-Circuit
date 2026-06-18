@@ -1,10 +1,20 @@
 var searchData=
 [
-  ['patrolpoints_0',['patrolPoints',['../class_enemy_controller.html#a0abbd76617dc12a465cfc30c1fa20758',1,'EnemyController']]],
-  ['pausemenu_1',['pauseMenu',['../class_u_i_manager.html#ad357112524774f4d2da25f28fd841c0b',1,'UIManager']]],
-  ['playerlayer_2',['playerLayer',['../class_enemy_controller.html#aead941d552249a10db582c4a2167d722',1,'EnemyController']]],
-  ['playerlayer_3',['playerlayer',['../class_enemy.html#af5c4a695228b813b9cb70e08135f2c20',1,'Enemy']]],
-  ['playerlives_4',['playerLives',['../class_game_manager.html#a83ec313781aee458c1a5a92bf83327d2',1,'GameManager']]],
-  ['points_5',['points',['../class_enemy.html#a94ddd444908e86b92932eaa139a036f2',1,'Enemy']]],
-  ['puzzlestate_6',['puzzleState',['../class_puzzle_element.html#a87f0eef4f8b5684558c0e5164584923d',1,'PuzzleElement']]]
+  ['m_5fframe_0',['m_frame',['../class_t_m_pro_1_1_examples_1_1_shader_prop_animator.html#a6e28899cd07f82e7b51db5d99d06abc0',1,'TMPro::Examples::ShaderPropAnimator']]],
+  ['mainmenuscenename_1',['mainMenuSceneName',['../class_credits_manager.html#a30f4d073b7b7a73edad08cf253884864',1,'CreditsManager']]],
+  ['maxelevationangle_2',['MaxElevationAngle',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html#a33b43fba4e4a426db3cf907e875a579a',1,'TMPro::Examples::CameraController']]],
+  ['maxfallspeed_3',['maxFallSpeed',['../class_player_controller.html#a52eede8a837a69f22130ec6512022bd9',1,'PlayerController']]],
+  ['maxfollowdistance_4',['MaxFollowDistance',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html#a794f2217e529fa239e65463612bd78ca',1,'TMPro::Examples::CameraController']]],
+  ['maxhealth_5',['maxHealth',['../class_player_health.html#a3e49aafc864318a3a3a83a7232bc66af',1,'PlayerHealth']]],
+  ['maxpointsize_6',['MaxPointSize',['../class_t_m_pro_1_1_examples_1_1_benchmark04.html#ac46a1dbaedb058606168ac613b37e4a7',1,'TMPro::Examples::Benchmark04']]],
+  ['minelevationangle_7',['MinElevationAngle',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html#ab56a8533afb8ddf74cf4f28403db0c9e',1,'TMPro::Examples::CameraController']]],
+  ['minfollowdistance_8',['MinFollowDistance',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html#af54c30206b387c4cdb03d8c894aee65e',1,'TMPro::Examples::CameraController']]],
+  ['minpointsize_9',['MinPointSize',['../class_t_m_pro_1_1_examples_1_1_benchmark04.html#a85eba46098210950a9d7c3d05ed3ff66',1,'TMPro::Examples::Benchmark04']]],
+  ['motion_10',['Motion',['../class_t_m_pro_1_1_examples_1_1_object_spin.html#ae422bdffcabfc75fae2c0bad902124f1',1,'TMPro::Examples::ObjectSpin']]],
+  ['movementsmoothing_11',['MovementSmoothing',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html#a88aeb1dacfab4311497e12b63d9a0ead',1,'TMPro::Examples::CameraController']]],
+  ['movementsmoothingvalue_12',['MovementSmoothingValue',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html#add5727218e5af8bf5c4d50ecbc69eff2',1,'TMPro::Examples::CameraController']]],
+  ['movesensitivity_13',['MoveSensitivity',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html#af5ce7ae7b15ae2b86b4d7b4ad077d71a',1,'TMPro::Examples::CameraController']]],
+  ['movespeed_14',['moveSpeed',['../class_player.html#af75dce28d0c467e06f984717a283ebcb',1,'Player.moveSpeed'],['../class_player_controller.html#abb12e85ca1b12efdbc8684bff2e19c4c',1,'PlayerController.moveSpeed']]],
+  ['music_15',['music',['../class_audio_manager.html#ac4b933f79ddc56f1124d4e122135059e',1,'AudioManager']]],
+  ['musicsource_16',['musicSource',['../class_audio_manager.html#a54db9f2d0d9838c238a56cc82b222773',1,'AudioManager']]]
 ];

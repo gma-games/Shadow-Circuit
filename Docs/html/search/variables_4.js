@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['health_0',['health',['../class_player.html#ab064f330cef84e2e062fd6446db24184',1,'Player']]],
-  ['healthbar_1',['healthBar',['../class_u_i_manager.html#a9dfe34791ae94134b25487ffad83d1bc',1,'UIManager']]],
-  ['healthbarfill_2',['healthBarFill',['../class_u_i_manager.html#a61381fe5f41e276dd1c0d3e5cd5ffcbf',1,'UIManager']]],
-  ['hurtclip_3',['hurtClip',['../class_player.html#a569a3b0cfac8971e7343b298946389c6',1,'Player']]]
+  ['elevationangle_0',['ElevationAngle',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html#a8709e27c129e088a6da0f43c119d835a',1,'TMPro::Examples::CameraController']]],
+  ['extrajumpsvalue_1',['extraJumpsValue',['../class_player.html#a99d2f6123e2b08be369394ddb341dfa8',1,'Player.extraJumpsValue'],['../class_player_controller.html#ad31c28912a1712764bb66bce97dc344c',1,'PlayerController.extraJumpsValue']]]
 ];

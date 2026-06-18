@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['restartgame_0',['RestartGame',['../class_restart_game.html',1,'']]]
+  ['nextlevel_0',['NextLevel',['../class_next_level.html',1,'']]]
 ];

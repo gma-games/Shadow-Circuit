@@ -12,6 +12,7 @@ var class_player_controller =
     [ "jumpBufferTime", "class_player_controller.html#ade214a2babf8653a08796367fcceafc4", null ],
     [ "jumpContinuesForce", "class_player_controller.html#ade50b34819bd62daa9ba7d4d6adb7ab5", null ],
     [ "jumpForce", "class_player_controller.html#a7c109871eba0057fd2aa1856522a346d", null ],
+    [ "maxFallSpeed", "class_player_controller.html#a52eede8a837a69f22130ec6512022bd9", null ],
     [ "moveSpeed", "class_player_controller.html#abb12e85ca1b12efdbc8684bff2e19c4c", null ],
     [ "wallCheckDistance", "class_player_controller.html#a756b23580eb450873808fdb183f570be", null ],
     [ "wallSlideSpeed", "class_player_controller.html#ad45e6f52ad5abdc588ad61e76586cd92", null ]
