@@ -1,6 +1,8 @@
-using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
+using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
 
 public class SaveableObjectFixer
 {
@@ -38,3 +40,4 @@ public class SaveableObjectFixer
         Debug.Log($"<color=green>{fixedCount} db hibás vagy másolt ID javítva!</color>");
     }
 }
+#endif
