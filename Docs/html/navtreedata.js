@@ -25,12 +25,15 @@
 var NAVTREE =
 [
   [ "ShadowCircuit", "index.html", [
+    [ "Packages", "namespaces.html", [
+      [ "Package List", "namespaces.html", "namespaces_dup" ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
@@ -49,7 +52,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_audio_manager_8cs.html"
+"_audio_manager_8cs.html",
+"class_saveable_object.html#a007289f5e86c4d59af15482a3dbb77f7",
+"class_t_m_pro_1_1_examples_1_1_text_mesh_pro_floating_text.html#ad56f2733da1ac56f0779cd3e78806daf"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

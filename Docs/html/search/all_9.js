@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['key_0',['Key',['../class_key.html',1,'']]],
-  ['key_1',['key',['../class_player.html#ae88ca651fe71be4101d315c812539ddc',1,'Player']]],
-  ['key_2ecs_2',['Key.cs',['../_key_8cs.html',1,'']]],
-  ['keycard_3',['Keycard',['../class_keycard.html',1,'']]],
-  ['keycard_2ecs_4',['Keycard.cs',['../_keycard_8cs.html',1,'']]],
-  ['knockbackforcehorizontal_5',['knockbackForceHorizontal',['../class_player_health.html#a8d92d744054133e662215252f43ad762',1,'PlayerHealth']]],
-  ['knockbackforceup_6',['knockbackForceUp',['../class_player_health.html#a54ccf311a9fb1960608b8de1af28f159',1,'PlayerHealth']]]
+  ['jump_0',['Jump',['../class_player_controller.html#a8a7010cb6f3c524737be3f6f77553df9',1,'PlayerController']]],
+  ['jumpbuffertime_1',['jumpBufferTime',['../class_player.html#ab86094d49f5c58bfda78abcd6bd52fb7',1,'Player.jumpBufferTime'],['../class_player_controller.html#ade214a2babf8653a08796367fcceafc4',1,'PlayerController.jumpBufferTime']]],
+  ['jumpclip_2',['jumpClip',['../class_player.html#ac823e8a74993d90dd8e2fc393916e4a9',1,'Player']]],
+  ['jumpcontinuesforce_3',['jumpContinuesForce',['../class_player.html#ab23a0a715ab1b139b056ea5090d73aec',1,'Player.jumpContinuesForce'],['../class_player_controller.html#ade50b34819bd62daa9ba7d4d6adb7ab5',1,'PlayerController.jumpContinuesForce']]],
+  ['jumpforce_4',['jumpForce',['../class_player.html#ade3dd7187b97e6d44a2ff0adc946b81e',1,'Player.jumpForce'],['../class_player_controller.html#a7c109871eba0057fd2aa1856522a346d',1,'PlayerController.jumpForce']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['maxhealth_0',['maxHealth',['../class_player_health.html#a3e49aafc864318a3a3a83a7232bc66af',1,'PlayerHealth']]],
-  ['movespeed_1',['moveSpeed',['../class_player.html#af75dce28d0c467e06f984717a283ebcb',1,'Player.moveSpeed'],['../class_player_controller.html#abb12e85ca1b12efdbc8684bff2e19c4c',1,'PlayerController.moveSpeed']]],
-  ['music_2',['music',['../class_audio_manager.html#ac4b933f79ddc56f1124d4e122135059e',1,'AudioManager']]],
-  ['musicsource_3',['musicSource',['../class_audio_manager.html#a54db9f2d0d9838c238a56cc82b222773',1,'AudioManager']]]
+  ['jumpbuffertime_0',['jumpBufferTime',['../class_player.html#ab86094d49f5c58bfda78abcd6bd52fb7',1,'Player.jumpBufferTime'],['../class_player_controller.html#ade214a2babf8653a08796367fcceafc4',1,'PlayerController.jumpBufferTime']]],
+  ['jumpclip_1',['jumpClip',['../class_player.html#ac823e8a74993d90dd8e2fc393916e4a9',1,'Player']]],
+  ['jumpcontinuesforce_2',['jumpContinuesForce',['../class_player.html#ab23a0a715ab1b139b056ea5090d73aec',1,'Player.jumpContinuesForce'],['../class_player_controller.html#ade50b34819bd62daa9ba7d4d6adb7ab5',1,'PlayerController.jumpContinuesForce']]],
+  ['jumpforce_3',['jumpForce',['../class_player.html#ade3dd7187b97e6d44a2ff0adc946b81e',1,'Player.jumpForce'],['../class_player_controller.html#a7c109871eba0057fd2aa1856522a346d',1,'PlayerController.jumpForce']]]
 ];

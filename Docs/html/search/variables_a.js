@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['name_0',['name',['../class_sound.html#a6232daa7d1f983315cc0d10cf776ab76',1,'Sound']]],
-  ['nearbyobjects_1',['nearbyObjects',['../class_player_interaction.html#a279f09ecf827be42f96bd42361e0667a',1,'PlayerInteraction']]],
-  ['nextlevelname_2',['nextLevelName',['../class_next_level.html#ab86c774182964fcb0453ae9502320128',1,'NextLevel']]],
-  ['nextlevelvalue_3',['nextLevelValue',['../class_next_level.html#a32ae87af165e4669a3e6b8df0dad3e0a',1,'NextLevel']]]
+  ['key_0',['key',['../class_player.html#ae88ca651fe71be4101d315c812539ddc',1,'Player']]],
+  ['keycardicon_1',['keycardIcon',['../class_u_i_manager.html#a22d85e21cb8d3f44f03497ae659109e7',1,'UIManager']]],
+  ['knockbackforcehorizontal_2',['knockbackForceHorizontal',['../class_player_health.html#a8d92d744054133e662215252f43ad762',1,'PlayerHealth']]],
+  ['knockbackforceup_3',['knockbackForceUp',['../class_player_health.html#a54ccf311a9fb1960608b8de1af28f159',1,'PlayerHealth']]]
 ];

@@ -1,8 +1,19 @@
 var searchData=
 [
-  ['jump_0',['Jump',['../class_player_controller.html#a8a7010cb6f3c524737be3f6f77553df9',1,'PlayerController']]],
-  ['jumpbuffertime_1',['jumpBufferTime',['../class_player.html#ab86094d49f5c58bfda78abcd6bd52fb7',1,'Player.jumpBufferTime'],['../class_player_controller.html#ade214a2babf8653a08796367fcceafc4',1,'PlayerController.jumpBufferTime']]],
-  ['jumpclip_2',['jumpClip',['../class_player.html#ac823e8a74993d90dd8e2fc393916e4a9',1,'Player']]],
-  ['jumpcontinuesforce_3',['jumpContinuesForce',['../class_player.html#ab23a0a715ab1b139b056ea5090d73aec',1,'Player.jumpContinuesForce'],['../class_player_controller.html#ade50b34819bd62daa9ba7d4d6adb7ab5',1,'PlayerController.jumpContinuesForce']]],
-  ['jumpforce_4',['jumpForce',['../class_player.html#ade3dd7187b97e6d44a2ff0adc946b81e',1,'Player.jumpForce'],['../class_player_controller.html#a7c109871eba0057fd2aa1856522a346d',1,'PlayerController.jumpForce']]]
+  ['icon_0',['icon',['../class_readme_b_e2.html#ab2e4d53a0b4ea389157328ae6f6bb94d',1,'ReadmeBE2']]],
+  ['iframeduration_1',['iFrameDuration',['../class_player.html#a1ede9a881701b3dfd8bb324f00eb7e2f',1,'Player.iFrameDuration'],['../class_player_health.html#a0169ef76385ca962ad7b499d4907fc48',1,'PlayerHealth.iFrameDuration']]],
+  ['inactive_2',['Inactive',['../class_puzzle_element.html#a5f5564d7c4af0822440dca0c5a037623a3cab03c00dbd11bc3569afa0748013f0',1,'PuzzleElement']]],
+  ['instance_3',['Instance',['../class_audio_manager.html#af96f8bc4f9a0ad3f1a63a028bb31f790',1,'AudioManager.Instance'],['../class_game_manager.html#ad3e717f4fb0f378b969f4457de81f23e',1,'GameManager.Instance'],['../class_persistence_manager.html#a7a9610f03be749e34544723dea2b23c6',1,'PersistenceManager.Instance'],['../class_u_i_manager.html#a006246dc7fcecbe2387d70731191d4f6',1,'UIManager.Instance']]],
+  ['interact_4',['Interact',['../class_player_interaction.html#aa3009a6da748ad5a94272f88624e1c0e',1,'PlayerInteraction']]],
+  ['interactrange_5',['interactRange',['../class_player_interaction.html#a2fbffe73bd0af993ac4942e296d19723',1,'PlayerInteraction']]],
+  ['interacttext_6',['interactText',['../class_switch.html#a3b985a607863421ac4a8ec13474bfc32',1,'Switch']]],
+  ['isactive_7',['isActive',['../class_switch.html#a7a61b75dd89fc5a7d3d24f8dabbed4b7',1,'Switch']]],
+  ['isfinallevel_8',['isFinalLevel',['../class_finish.html#a795fb3e8bd23b853effd292219800ec1',1,'Finish']]],
+  ['ismoving_9',['isMoving',['../class_moving_platform.html#a82285c4161e21f439f9a544139225930',1,'MovingPlatform']]],
+  ['isobjectalreadycollected_10',['IsObjectAlreadyCollected',['../class_persistence_manager.html#a48c174cade149d00afe50a0c1a1d26f2',1,'PersistenceManager']]],
+  ['isometric_11',['Isometric',['../class_t_m_pro_1_1_examples_1_1_camera_controller.html#a8180251e92d62266c8a026f0b77452cea93fe1f7c5ca2e09af063aca96d0625cc',1,'TMPro::Examples::CameraController']]],
+  ['isopen_12',['isOpen',['../class_switch_door.html#abae25dfc0b9e51a479407c62b1ce74f2',1,'SwitchDoor']]],
+  ['ispaused_13',['isPaused',['../class_game_manager.html#a9b6571bbce4dfff13fc7f38467c07c05',1,'GameManager']]],
+  ['isstatic_14',['isStatic',['../class_t_m_pro_1_1_examples_1_1_t_m_p___example_script__01.html#a5d554a45b55df66f623b13ccb74d3455',1,'TMPro::Examples::TMP_ExampleScript_01']]],
+  ['istextobjectscalestatic_15',['IsTextObjectScaleStatic',['../class_t_m_pro_1_1_examples_1_1_benchmark02.html#a3312dcab2361d19b685480cf912ac58d',1,'TMPro.Examples.Benchmark02.IsTextObjectScaleStatic'],['../class_t_m_pro_1_1_examples_1_1_text_mesh_pro_floating_text.html#ad56f2733da1ac56f0779cd3e78806daf',1,'TMPro.Examples.TextMeshProFloatingText.IsTextObjectScaleStatic']]]
 ];
